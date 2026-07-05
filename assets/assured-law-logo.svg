@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 420" role="img" aria-labelledby="title desc">
+  <title id="title">Assured Law Logo</title>
+  <desc id="desc">Assured Law wordmark with blue Assured, black Law, and scales of justice divider.</desc>
+  <rect width="1800" height="420" fill="#ffffff"/>
+  <style>
+    .word { font-family: Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: 0.055em; }
+  </style>
+  <text class="word" x="90" y="205" font-size="170" fill="#2a6f97">ASSURED</text>
+  <text class="word" x="1235" y="205" font-size="170" fill="#111111">LAW</text>
+  <line x1="115" y1="298" x2="770" y2="298" stroke="#2a6f97" stroke-width="7" stroke-linecap="square"/>
+  <line x1="1030" y1="298" x2="1665" y2="298" stroke="#111111" stroke-width="7" stroke-linecap="square"/>
+
+  <!-- Scales of justice icon -->
+  <g transform="translate(900 298)" fill="none" stroke="#2a6f97" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="0" y1="-48" x2="0" y2="47"/>
+    <line x1="-55" y1="-32" x2="55" y2="-32"/>
+    <path d="M-55 -32 C-37 -44 -18 -44 0 -32 C18 -44 37 -44 55 -32"/>
+    <line x1="-43" y1="-31" x2="-72" y2="22"/>
+    <line x1="-43" y1="-31" x2="-15" y2="22"/>
+    <path d="M-77 22 H-10 C-15 42 -27 51 -43 51 C-60 51 -72 42 -77 22 Z" fill="#2a6f97" stroke="none"/>
+    <line x1="43" y1="-31" x2="15" y2="22"/>
+    <line x1="43" y1="-31" x2="72" y2="22"/>
+    <path d="M10 22 H77 C72 42 60 51 43 51 C27 51 15 42 10 22 Z" fill="#2a6f97" stroke="none"/>
+    <path d="M-18 64 H18"/>
+    <path d="M-34 78 H34"/>
+    <circle cx="0" cy="-50" r="8" fill="#2a6f97" stroke="none"/>
+  </g>
+</svg>
