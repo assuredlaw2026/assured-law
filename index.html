@@ -178,24 +178,93 @@
   .hero-eyebrow { font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver-light); font-weight: 500; margin-bottom: 1.5rem; }
   .hero h1 { color: var(--navy); margin-bottom: 1.5rem; }
   .hero h1 em { font-style: italic; color: var(--silver-light); }
+
+  /* Dictionary-style hero entry: framed card */
+  .hero-dict {
+    position: relative;
+    background: #FDFDFB;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(27,58,107,0.05), 0 12px 32px rgba(27,58,107,0.08);
+    padding: 2.25rem 2.5rem 2rem;
+    margin-bottom: 2rem;
+    max-width: 620px;
+  }
+  /* Double rule at the top, like a printed dictionary column head */
+  .hero-dict::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: var(--navy);
+    border-radius: 3px 3px 0 0;
+  }
+  .hero-dict::after {
+    content: '';
+    position: absolute; top: 7px; left: 0; right: 0; height: 1px;
+    background: var(--silver-light);
+  }
+  .dict-word {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(2.8rem, 6vw, 4.2rem); font-weight: 600;
+    color: var(--navy); letter-spacing: 0.01em; line-height: 1.05;
+    display: inline-block; margin-bottom: 0.2rem;
+  }
+  .dict-sup {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 1.1rem; font-weight: 600; color: var(--silver);
+    vertical-align: super; margin-left: 0.2rem;
+  }
+  .dict-pron-row {
+    display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+    padding-bottom: 1rem; margin-bottom: 1.1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .dict-pron {
+    font-family: 'Inter', sans-serif; font-size: 0.95rem;
+    color: var(--slate); letter-spacing: 0.04em; margin: 0;
+  }
+  .dict-pos-tag {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: 1.05rem; font-weight: 600; color: var(--charcoal);
+  }
+  .dict-sep { color: var(--silver-light); font-size: 0.9rem; }
+  .dict-def {
+    font-size: 1rem; color: var(--slate); margin-bottom: 0.55rem;
+    line-height: 1.6; padding-left: 1.6rem; position: relative;
+  }
+  .dict-def:last-of-type { margin-bottom: 0; }
+  .dict-num {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 700; font-size: 1.05rem; color: var(--navy);
+    position: absolute; left: 0; top: 0;
+  }
+  .dict-def strong { color: var(--charcoal); font-weight: 600; }
+  .dict-firm-line {
+    margin-top: 1.25rem; padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: 1.08rem; color: var(--navy);
+  }
+  @media (max-width: 600px) {
+    .hero-dict { padding: 1.6rem 1.4rem 1.5rem; }
+    .dict-pron-row { gap: 0.5rem; }
+  }
   .hero-subtitle { font-size: 1.1rem; color: var(--slate); margin-bottom: 2.5rem; max-width: 560px; font-weight: 300; }
   .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
   .stats-band {
     background: var(--light-bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 2.5rem 0;
   }
-  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; text-align: center; }
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem;
+    text-align: center; max-width: 680px; margin: 0 auto;
+  }
+  .stats-grid .stat-full { grid-column: 1 / -1; }
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--navy); line-height: 1; }
   .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.4rem; }
 
   .intro-section { padding: 6rem 0; }
-  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
-  .intro-image-block {
-    position: relative; background: var(--silver-pale); border-radius: 2px; border: 1px solid var(--border);
-    overflow: hidden; aspect-ratio: 4/5;
-    display: flex; align-items: center; justify-content: center;
-  }
-  .scales-icon-large { opacity: 0.25; }
+  .intro-copy { max-width: 780px; }
+  .intro-copy p { font-size: 1.02rem; }
 
   .practice-section { background: var(--light-bg); }
   .section-header { text-align: center; margin-bottom: 3.5rem; }
@@ -218,14 +287,6 @@
   .cta-banner h2 { color: var(--navy); margin-bottom: 1rem; }
   .cta-banner p { color: var(--slate); margin-bottom: 2rem; font-size: 1.05rem; }
 
-  .testimonial-section { padding: 5rem 0; background: white; }
-  .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .testimonial {
-    padding: 2rem; background: var(--light-bg); border-radius: 2px; border: 1px solid var(--border); position: relative;
-  }
-  .testimonial::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 5rem; color: var(--silver); position: absolute; top: 0.5rem; left: 1.5rem; line-height: 1; opacity: 0.5; }
-  .testimonial p { padding-top: 1.5rem; font-style: italic; color: var(--slate); }
-  .testimonial-author { margin-top: 1rem; font-size: 0.85rem; font-weight: 600; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; }
 
   /* ══════════════════════════════════════
      NUISANCE PAGE
@@ -243,7 +304,7 @@
   .intro-text p { font-size: 1.05rem; }
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  @media (max-width: 720px) { .two-col, .intro-grid { grid-template-columns: 1fr; } .hero-cta { flex-direction: column; } }
+  @media (max-width: 720px) { .two-col { grid-template-columns: 1fr; } .hero-cta { flex-direction: column; } }
 
   .type-card {
     border: 1px solid var(--border); padding: 2.5rem; border-radius: 2px; background: white;
@@ -263,7 +324,12 @@
   .elements-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
   .element-item { background: white; padding: 1.5rem; border: 1px solid var(--border); border-radius: 2px; text-align: center; }
   .element-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--navy); line-height: 1; }
-  .element-item h4 { font-size: 1rem; margin: 0.5rem 0 0.4rem; color: var(--navy); }
+  .element-item h4 { font-size: 1rem; margin: 0.5rem 0 0.25rem; color: var(--navy); line-height: 1.25; }
+  .element-term {
+    font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic;
+    font-size: 0.82rem; color: var(--silver); margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+  }
   .element-item p { font-size: 0.82rem; margin: 0; }
 
   .compare-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
@@ -303,19 +369,19 @@
   .form-container { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
   .form-section { padding: 3.5rem 0 6rem; background: var(--light-bg); }
 
-  .case-type-selector { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin: 2rem 0 2.5rem; }
+  .case-type-selector { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 2rem 0 2.5rem; }
   .case-type-option { position: relative; }
   .case-type-option input { position: absolute; opacity: 0; width: 0; }
   .case-type-label {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 1.75rem; border: 2px solid var(--border); border-radius: 4px;
+    padding: 1.4rem 1rem; border: 2px solid var(--border); border-radius: 4px;
     background: white; cursor: pointer; text-align: center; transition: all 0.2s;
-    min-height: 130px;
+    min-height: 145px; height: 100%;
   }
   .case-type-label:hover { border-color: var(--navy-mid); }
   .case-type-option input:checked + .case-type-label { border-color: var(--navy); background: #E8EDF5; }
   .case-type-label svg { margin-bottom: 0.75rem; }
-  .case-type-label strong { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--navy); display: block; }
+  .case-type-label strong { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--navy); display: block; line-height: 1.2; }
   .case-type-label span { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem; }
 
   .form-card { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 2.5rem; margin-bottom: 1.5rem; }
@@ -399,7 +465,7 @@
   .footer-col ul li { margin-bottom: 0.5rem; }
   .footer-col ul li a { font-size: 0.85rem; color: rgba(255,255,255,0.55); cursor: pointer; }
   .footer-col ul li a:hover { color: var(--silver-light); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: gap: 1rem; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-bottom p { font-size: 0.78rem; margin: 0; }
   .footer-disclaimer { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.07); line-height: 1.6; }
 
@@ -426,9 +492,7 @@
     /* Layout */
     .container { padding: 0 1.25rem; }
     section { padding: 3rem 0; }
-    .intro-grid { grid-template-columns: 1fr; gap: 2rem; }
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
-    .intro-image-block { aspect-ratio: 3/2; }
 
     /* Typography */
     h1 { font-size: clamp(2rem, 6vw, 3rem); }
@@ -448,9 +512,6 @@
 
     /* Why grid */
     .why-grid { grid-template-columns: 1fr; }
-
-    /* Testimonials */
-    .testimonials { grid-template-columns: 1fr; }
 
     /* Page hero */
     .page-hero { padding: 5rem 0 3rem; }
@@ -477,7 +538,7 @@
     /* Form */
     .form-row { grid-template-columns: 1fr; }
     .form-row.third { grid-template-columns: 1fr; }
-    .case-type-selector { grid-template-columns: 1fr; }
+    .case-type-selector { grid-template-columns: 1fr 1fr; }
     .form-card { padding: 1.5rem; }
   }
 
@@ -590,6 +651,8 @@
           <a onclick="navigate('nuisance')">Nuisance Law</a>
           <a onclick="navigate('premises')">Premises Liability</a>
           <a onclick="navigate('justice')">Justice Court Claims</a>
+          <a onclick="navigate('injury')">Personal Injury</a>
+          <a onclick="navigate('defect')">Construction Defect</a>
         </div>
       </div>
 
@@ -640,13 +703,15 @@
   <a onclick="navigate('nuisance')" style="padding-left:1.5rem;font-size:0.82rem;">Nuisance Law</a>
   <a onclick="navigate('premises')" style="padding-left:1.5rem;font-size:0.82rem;">Premises Liability</a>
   <a onclick="navigate('justice')" style="padding-left:1.5rem;font-size:0.82rem;">Justice Court Claims</a>
+  <a onclick="navigate('injury')" style="padding-left:1.5rem;font-size:0.82rem;">Personal Injury</a>
+  <a onclick="navigate('defect')" style="padding-left:1.5rem;font-size:0.82rem;">Construction Defect</a>
   <a onclick="navigate('review')">Case Consultation</a>
   <div style="padding:0.75rem 0;border-bottom:1px solid var(--border);">
     <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--silver);margin-bottom:0.5rem;">Contact</div>
     <div style="font-size:0.85rem;color:var(--slate);margin-bottom:0.3rem;"><a href="mailto:contact@assuredlaw.com" style="color:var(--navy);text-transform:none;letter-spacing:0;padding:0;display:inline;">contact@assuredlaw.com</a></div>
     <div style="font-size:0.85rem;color:var(--slate);margin-bottom:0.3rem;"><a href="tel:7028253747" style="color:var(--navy);text-transform:none;letter-spacing:0;padding:0;display:inline;">(702) 825-3747</a></div>
     <div style="font-size:0.85rem;color:var(--slate);margin-bottom:0.3rem;">Fax: (866) 248-6564</div>
-    <div style="font-size:0.85rem;color:var(--slate);">635 W Lake Mead Pkwy, Henderson, NV 89015</div>
+    <div style="font-size:0.85rem;color:var(--slate);">635 W Lake Mead Parkway, Henderson, NV 89015</div>
   </div>
 </div>
 
@@ -659,8 +724,22 @@
   <section class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Fighting for Those <em>Harmed</em> by Others</h1>
-        <p class="hero-subtitle">Assured Law is Nevada's premier firm for nuisance damage claims, premises liability litigation, and Justice Court claims. When the actions of others causes you harm, we hold them accountable.</p>
+        <div class="hero-dict">
+          <div>
+            <h1 class="dict-word" style="margin-bottom:0.2rem;">ad&middot;vo&middot;cate<span class="dict-sup">n.</span></h1>
+          </div>
+          <div class="dict-pron-row">
+            <span class="dict-pron">\ &#712;ad-v&#601;-k&#601;t \</span>
+            <span class="dict-sep">|</span>
+            <span class="dict-pos-tag">noun</span>
+            <span class="dict-sep">|</span>
+            <span class="dict-pron" style="font-style:italic;">Latin advocatus, one called to aid</span>
+          </div>
+          <p class="dict-def"><span class="dict-num">1</span> one who <strong>pleads the cause of another</strong>, especially before a court or tribunal</p>
+          <p class="dict-def"><span class="dict-num">2</span> one who <strong>defends or maintains a cause</strong> on behalf of those who cannot do so alone</p>
+          <div class="dict-firm-line">see also: Assured Law, Henderson, Nevada</div>
+        </div>
+        <p class="hero-subtitle">Assured Law is a Nevada firm dedicated to nuisance damage claims, premises liability litigation, and Justice Court claims. When the actions of others cause you harm, we hold them accountable.</p>
         <div class="hero-cta">
           <a class="btn btn-silver" onclick="navigate('review')">Get a Free Case Review</a>
           <a class="btn btn-outline" onclick="navigate('nuisance')">Our Practice Areas</a>
@@ -674,20 +753,16 @@
     <div class="container">
       <div class="stats-grid">
         <div>
-          <div class="stat-num">50+</div>
-          <div class="stat-label">Years in Property & Compliance</div>
+          <div class="stat-num">25+</div>
+          <div class="stat-label">Years of Compliance Enforcement</div>
         </div>
         <div>
-          <div class="stat-num">3</div>
+          <div class="stat-num">5</div>
           <div class="stat-label">Practice Areas</div>
         </div>
-        <div>
+        <div class="stat-full">
           <div class="stat-num">100%</div>
           <div class="stat-label">Client-Focused Representation</div>
-        </div>
-        <div>
-          <div class="stat-num">$0</div>
-          <div class="stat-label">Fee Until You Win</div>
         </div>
       </div>
     </div>
@@ -696,31 +771,15 @@
   <!-- Intro -->
   <section class="intro-section">
     <div class="container">
-      <div class="intro-grid">
-        <div class="intro-image-block">
-          <svg class="scales-icon-large" width="220" height="220" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="50" y1="10" x2="50" y2="85" stroke="#1B3A6B" stroke-width="3"/>
-            <line x1="20" y1="30" x2="80" y2="30" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
-            <line x1="20" y1="30" x2="10" y2="55" stroke="#1B3A6B" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M8 55 Q20 65 30 55" stroke="#1B3A6B" stroke-width="2.5" fill="none"/>
-            <line x1="80" y1="30" x2="70" y2="55" stroke="#1B3A6B" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M68 55 Q80 65 90 55" stroke="#1B3A6B" stroke-width="2.5" fill="none"/>
-            <line x1="35" y1="85" x2="65" y2="85" stroke="#1B3A6B" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-          <!-- Decorative overlay text -->
-          <div style="position:absolute;bottom:0;left:0;right:0;padding:2rem;background:linear-gradient(transparent,rgba(235,240,248,0.95));">
-            <p style="color:var(--navy);font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;margin:0;">&ldquo;Justice delayed is justice denied; we act swiftly to secure your relief.&rdquo;</p>
-          </div>
-        </div>
-        <div>
-          <div class="badge badge-navy" style="margin-bottom:1rem;">Why Assured Law</div>
-          <h2 style="margin-bottom:1rem;">Deep Industry Roots. Fresh Legal Firepower.</h2>
-          <div class="rule-silver"></div>
-          <p>When a neighbor's property, a public hazard, or a dangerous premise causes you injury, financial loss, or disrupts your life, you deserve fierce representation from attorneys who know this terrain.</p>
-          <p>Assured Law was founded by professionals who spent over 50 years on the other side of these disputes, with backgrounds in property management and regulatory compliance,. We know how property owners think, how they document (or don't), and where the liability lives. That insider perspective, combined with rigorous legal training, means we build cases other firms miss.</p>
-          <p>Our clients come to us when other firms turn them away, and we deliver results.</p>
-          <a class="btn btn-primary" style="margin-top:1rem;" onclick="navigate('review')">Start Your Free Review</a>
-        </div>
+      <div class="intro-copy">
+        <div class="badge badge-navy" style="margin-bottom:1rem;">Why Assured Law</div>
+        <h2 style="margin-bottom:1rem;">Deep Industry Roots. Fresh Legal Firepower.</h2>
+        <div class="rule-silver"></div>
+        <p>When a neighbor's property, a public hazard, or a dangerous premise causes you injury, financial loss, or disrupts your life, you deserve fierce representation from attorneys who know this terrain.</p>
+        <p>Assured Law was founded by professionals with 25 years of experience in property management, regulatory compliance, and the construction industry. We spent those years on the other side of these disputes: managing the properties, answering the complaints, and enforcing the codes.</p>
+        <p>As plaintiffs' attorneys, we now bring that knowledge to your side of the case. We know how defendants think, or fail to. We know what their maintenance records look like, how complaints get logged or quietly buried, which inspections were skipped, and where the liability lives. That perspective, combined with rigorous legal training, means we build cases other firms miss.</p>
+        <p>We take the cases other firms turn away, and we pursue every one of them with professional discipline.</p>
+        <a class="btn btn-primary" style="margin-top:1rem;" onclick="navigate('review')">Start Your Free Review</a>
       </div>
     </div>
   </section>
@@ -732,7 +791,7 @@
         <div class="badge badge-silver">Practice Areas</div>
         <h2 style="margin-top:1rem;">We Handle What Others Won't</h2>
         <div class="rule-silver" style="margin:1.25rem auto;"></div>
-        <p style="max-width:600px;margin:0 auto;">Three focused practice areas. Deep industry knowledge behind each. No generalists, no guesswork, including full representation for Justice Court claims that other firms decline to take.</p>
+        <p style="max-width:600px;margin:0 auto;">Five focused practice areas. Deep industry knowledge behind each. No generalists, no guesswork, including full representation for Justice Court claims that other firms decline to take.</p>
       </div>
       <div class="practice-grid">
         <div class="practice-card" onclick="navigate('nuisance')">
@@ -765,8 +824,28 @@
             </svg>
           </div>
           <h3>Justice Court Claims</h3>
-          <p>Claims under $25,000 belong in Justice Court, and they deserve the same rigorous representation as any other matter. We handle the full spectrum, including cases other firms turn away because the dollar amount does not justify their overhead.</p>
+          <p>Claims under $15,000 belong in Justice Court, and they deserve the same rigorous representation as any other matter. We handle the full spectrum, including cases other firms turn away because the dollar amount does not justify their overhead.</p>
           <div style="color:var(--navy);font-size:0.85rem;font-weight:600;margin-top:1rem;letter-spacing:0.05em;">GET A FREE REVIEW →</div>
+        </div>
+        <div class="practice-card" onclick="navigate('injury')">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            </svg>
+          </div>
+          <h3>Personal Injury</h3>
+          <p>When another party's negligence causes you physical harm, we pursue the full measure of your losses: medical costs, lost income, and pain and suffering.</p>
+          <div style="color:var(--navy);font-size:0.85rem;font-weight:600;margin-top:1rem;letter-spacing:0.05em;">LEARN MORE →</div>
+        </div>
+        <div class="practice-card" onclick="navigate('defect')">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round">
+              <path d="M2 22h20"/><path d="M4 22V8l8-6 8 6v14"/><path d="M9 22v-6h6v6"/>
+            </svg>
+          </div>
+          <h3>Construction Defect</h3>
+          <p>Water intrusion, structural failures, and defective workmanship. We navigate Nevada's Chapter 40 pre-litigation process to hold builders accountable.</p>
+          <div style="color:var(--navy);font-size:0.85rem;font-weight:600;margin-top:1rem;letter-spacing:0.05em;">LEARN MORE →</div>
         </div>
         <div class="practice-card" onclick="navigate('review')">
           <div class="practice-icon">
@@ -806,32 +885,7 @@
         </div>
         <div class="why-item">
           <h4>Industry-Insider Advantage</h4>
-          <p style="margin:0;font-size:0.88rem;">Our founding team spent 50+ years in property management and compliance; we know exactly how owners operate and where they fall short.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="testimonial-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge badge-silver">Client Stories</div>
-        <h2 style="margin-top:1rem;">Results That Speak for Themselves</h2>
-        <div class="rule-silver" style="margin:1.25rem auto;"></div>
-      </div>
-      <div class="testimonials">
-        <div class="testimonial">
-          <p>A neighboring industrial tenant was contaminating our groundwater for years. Assured Law built a case that recovered far more than we thought possible. They know nuisance law inside and out.</p>
-          <div class="testimonial-author">Commercial Property Owner, Las Vegas</div>
-        </div>
-        <div class="testimonial">
-          <p>After my fall in a parking garage with broken lighting, every firm told me the case was too difficult. Assured Law took it on, proved negligent maintenance, and won us a full recovery.</p>
-          <div class="testimonial-author">Premises Liability Client</div>
-        </div>
-        <div class="testimonial">
-          <p>Their free review was thorough and honest. They told us exactly what evidence we'd need to prove our claim, and helped us gather it before the statute of limitations ran out.</p>
-          <div class="testimonial-author">Nuisance Claim Client, Henderson</div>
+          <p style="margin:0;font-size:0.88rem;">Our founding team spent 25 years in property management, compliance enforcement, and construction; we know how owners operate and where they fall short.</p>
         </div>
       </div>
     </div>
@@ -841,7 +895,7 @@
   <section class="cta-banner">
     <div class="container">
       <h2>No Claim Too Small. No Defendant Too Large.</h2>
-      <p>From Justice Court matters under $25,000 to complex premises liability and nuisance litigation, Assured Law takes every case seriously. Statutes of limitations are unforgiving, the time to act is now.</p>
+      <p>From Justice Court matters under $15,000 to complex premises liability and nuisance litigation, Assured Law takes every case seriously. Statutes of limitations are unforgiving, the time to act is now.</p>
       <a class="btn btn-silver" onclick="navigate('review')">Submit a Free Case Review Today</a>
     </div>
   </section>
@@ -939,36 +993,41 @@
     <section class="elements-section">
       <div class="container">
         <div class="section-header">
-          <div class="badge badge-navy">What You Must Prove</div>
-          <h2 style="margin-top:1rem;">Elements of a Nuisance Claim</h2>
+          <div class="badge badge-navy">Building Your Case</div>
+          <h2 style="margin-top:1rem;">Five Things We Have to Prove</h2>
           <div class="rule-silver" style="margin:1.25rem auto;"></div>
-          <p style="max-width:580px;margin:0 auto;">Whether public or private, a nuisance claim in Nevada requires establishing these core elements. Our case review evaluates each of them against your specific facts.</p>
+          <p style="max-width:620px;margin:0 auto;">Whether your situation is a public or a private nuisance, Nevada law requires the same five showings. Lawyers call these the elements of a claim. Here is what each one actually means, and what our free case review checks against your facts.</p>
         </div>
         <div class="elements-grid">
           <div class="element-item">
             <div class="element-num">01</div>
-            <h4>Interference</h4>
-            <p>An act or condition that interferes with a protected right, either a public right or your use and enjoyment of property.</p>
+            <h4>It Interferes With You</h4>
+            <div class="element-term">interference</div>
+            <p>Someone's use of their property is getting in the way of a right you hold: your right to use and enjoy your own property, or a right the public shares.</p>
           </div>
           <div class="element-item">
             <div class="element-num">02</div>
-            <h4>Substantiality</h4>
-            <p>The interference must be substantial, significant enough that a reasonable person would regard it as a real harm, not a trivial inconvenience.</p>
+            <h4>The Harm Is Real</h4>
+            <div class="element-term">substantiality</div>
+            <p>The problem has to be serious enough that an ordinary person would call it real harm, not a passing annoyance or a matter of unusual personal sensitivity.</p>
           </div>
           <div class="element-item">
             <div class="element-num">03</div>
-            <h4>Unreasonableness</h4>
-            <p>The defendant's conduct must be unreasonable, judged by balancing its utility against the harm it causes to others.</p>
+            <h4>Their Conduct Is Unreasonable</h4>
+            <div class="element-term">unreasonableness</div>
+            <p>We weigh whatever value their activity has against the harm it causes you. An activity can be perfectly legal and still be unreasonable in its effect on you.</p>
           </div>
           <div class="element-item">
             <div class="element-num">04</div>
-            <h4>Causation</h4>
-            <p>A direct causal link between the defendant's conduct and the interference you experienced must be established.</p>
+            <h4>They Caused It</h4>
+            <div class="element-term">causation</div>
+            <p>The problem has to trace back to them. We connect what they did to what you experienced, and rule out other possible sources.</p>
           </div>
           <div class="element-item">
             <div class="element-num">05</div>
-            <h4>Damages</h4>
-            <p>Quantifiable harm, property damage, loss of use, personal injury, economic loss, or remediation costs, must be demonstrated.</p>
+            <h4>It Cost You</h4>
+            <div class="element-term">damages</div>
+            <p>You suffered losses that can be counted: property damage, lost value, lost rent or income, cleanup costs, health effects, or the loss of normal use of your home.</p>
           </div>
         </div>
       </div>
@@ -1193,34 +1252,40 @@
       <div class="container">
         <div class="section-header">
           <div class="badge badge-silver">Building Your Case</div>
-          <h2 style="margin-top:1rem;">What You Must Prove</h2>
+          <h2 style="margin-top:1rem;">Five Things We Have to Prove</h2>
           <div class="rule-silver" style="margin:1.25rem auto;"></div>
+          <p style="max-width:620px;margin:0 auto;">Every premises liability claim in Nevada rests on the same five showings. Lawyers call these the elements of a claim. Here is what each one actually means, and what our free case review checks against your facts.</p>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1rem;">
+        <div class="elements-grid" style="margin-top:2rem;">
           <div class="element-item">
             <div class="element-num">01</div>
-            <h4>Duty of Care</h4>
-            <p>The defendant owed you a duty, established by your visitor status and the circumstances of entry.</p>
+            <h4>They Owed You Safety</h4>
+            <div class="element-term">duty of care</div>
+            <p>Property owners owe a duty to keep their property reasonably safe. How much they owe depends on why you were there: a paying customer is owed more than an uninvited visitor.</p>
           </div>
           <div class="element-item">
             <div class="element-num">02</div>
-            <h4>Breach</h4>
-            <p>The owner or occupier failed to meet that duty through negligent action or inaction.</p>
+            <h4>They Fell Short</h4>
+            <div class="element-term">breach</div>
+            <p>They did not do what a reasonable owner would have done, either by creating the hazard themselves or by failing to fix it or warn you about it.</p>
           </div>
           <div class="element-item">
             <div class="element-num">03</div>
-            <h4>Notice</h4>
-            <p>The owner knew, or should have known, of the dangerous condition in time to remedy it.</p>
+            <h4>They Knew, or Should Have</h4>
+            <div class="element-term">notice</div>
+            <p>Often the whole case. The owner either knew about the hazard, or it sat there long enough that a reasonably attentive owner would have found it and fixed it.</p>
           </div>
           <div class="element-item">
             <div class="element-num">04</div>
-            <h4>Causation</h4>
-            <p>The breach directly caused your injury, including factual cause-in-fact and proximate legal causation.</p>
+            <h4>It Caused Your Injury</h4>
+            <div class="element-term">causation</div>
+            <p>The hazard is what actually hurt you. We connect their failure to your injury and rule out other explanations for how you were hurt.</p>
           </div>
           <div class="element-item">
             <div class="element-num">05</div>
-            <h4>Damages</h4>
-            <p>You suffered actual, quantifiable harm, physical, economic, or both.</p>
+            <h4>It Cost You</h4>
+            <div class="element-term">damages</div>
+            <p>You suffered losses that can be counted: medical bills, lost wages, pain and suffering, or lasting disability or disfigurement.</p>
           </div>
         </div>
       </div>
@@ -1321,7 +1386,7 @@
         <div class="success-msg" id="successMsg">
           <div class="check">✓</div>
           <h3>Case Review Submitted</h3>
-          <p>Thank you. An Assured Law attorney will review your submission and contact you within one business day. All information is held strictly confidential under attorney-client privilege.</p>
+          <p>Thank you. An Assured Law attorney will review your submission and contact you within one business day. Your submission is treated as confidential and is used only to check for conflicts of interest and evaluate your potential claim.</p>
         </div>
 
         <form id="caseForm" onsubmit="submitForm(event)" novalidate>
@@ -1355,7 +1420,23 @@
                 <div class="case-type-label">
                   <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="1.5"><path d="M12 3v18"/><path d="M3 7h18"/><path d="M6 7l-3 6c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5L6 7z"/><path d="M18 7l-3 6c0 1.5 1.5 2.5 3 2.5s3-1 3-2.5L18 7z"/><path d="M8 21h8"/></svg>
                   <strong>Justice Court Claim</strong>
-                  <span>Claims of $25,000 or less</span>
+                  <span>Claims of $15,000 or less</span>
+                </div>
+              </label>
+              <label class="case-type-option">
+                <input type="radio" name="caseType" value="injury" onchange="updateDynamicFields()">
+                <div class="case-type-label">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+                  <strong>Personal Injury</strong>
+                  <span>Injury caused by negligence</span>
+                </div>
+              </label>
+              <label class="case-type-option">
+                <input type="radio" name="caseType" value="defect" onchange="updateDynamicFields()">
+                <div class="case-type-label">
+                  <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="1.5"><path d="M2 22h20"/><path d="M4 22V8l8-6 8 6v14"/><path d="M9 22v-6h6v6"/></svg>
+                  <strong>Construction Defect</strong>
+                  <span>Defective work on your property</span>
                 </div>
               </label>
             </div>
@@ -1741,7 +1822,7 @@
               <div class="step-num">4</div>
               Justice Court Claim Details
             </div>
-            <p style="font-size:0.88rem;color:var(--slate);margin-bottom:1.5rem;">Justice Court has jurisdiction over civil claims of $25,000 or less. These questions help us confirm the claim fits within that jurisdiction and assess the underlying legal theory.</p>
+            <p style="font-size:0.88rem;color:var(--slate);margin-bottom:1.5rem;">Justice Court has jurisdiction over civil claims of $15,000 or less. These questions help us confirm the claim fits within that jurisdiction and assess the underlying legal theory.</p>
             <div class="form-row">
               <div class="form-group">
                 <label>Underlying Claim Type</label>
@@ -1762,8 +1843,7 @@
                   <option>Under $5,000</option>
                   <option>$5,000 to $10,000</option>
                   <option>$10,000 to $15,000</option>
-                  <option>$15,000 to $25,000</option>
-                  <option>May exceed $25,000</option>
+                  <option>May exceed $15,000</option>
                   <option>Unknown, need evaluation</option>
                 </select>
               </div>
@@ -1819,6 +1899,303 @@
                   <option>Yes, small claims, dismissed or lost</option>
                   <option>Yes, Justice Court, case pending</option>
                   <option>Yes, but I withdrew or did not pursue it</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- ④ Dynamic: Personal Injury Fields -->
+          <div class="form-card dynamic-fields" id="injuryFields">
+            <div class="form-card-title">
+              <div class="step-num">4</div>
+              Personal Injury Details
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>How Did the Injury Occur?</label>
+                <select name="injuryCause">
+                  <option value="">Select</option>
+                  <option>Fall or dangerous condition on property</option>
+                  <option>Negligent maintenance or defective equipment</option>
+                  <option>Toxic or environmental exposure</option>
+                  <option>Assault due to inadequate security</option>
+                  <option>Animal attack</option>
+                  <option>Struck by falling or moving object</option>
+                  <option>Wrongful death (representing estate or family)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Who Do You Believe Was at Fault?</label>
+                <select name="injuryFault">
+                  <option value="">Select</option>
+                  <option>Entirely the other party</option>
+                  <option>Mostly the other party</option>
+                  <option>Shared roughly equally</option>
+                  <option>Unsure</option>
+                </select>
+                <p class="hint">Nevada allows recovery unless you are more than 50 percent at fault. Answer candidly; this does not disqualify your claim.</p>
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label>Injuries Sustained</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="fracture"> <span>Broken bones or fractures</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="head"> <span>Head injury or traumatic brain injury</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="spinal"> <span>Spine, neck, or back injury</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="soft-tissue"> <span>Soft tissue injury (sprain, strain, tear)</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="lacerations"> <span>Cuts, lacerations, or scarring</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="internal"> <span>Internal injuries</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="permanent"> <span>Permanent disability or disfigurement</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="piInjuries" value="death"> <span>Wrongful death</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>When Did You First Receive Medical Treatment?</label>
+                <select name="piTreatmentTiming">
+                  <option value="">Select</option>
+                  <option>Ambulance from the scene</option>
+                  <option>Emergency room the same day</option>
+                  <option>Emergency room or urgent care within a few days</option>
+                  <option>Doctor visit within two weeks</option>
+                  <option>More than two weeks after</option>
+                  <option>No treatment yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Current Treatment Status</label>
+                <select name="piTreatmentStatus">
+                  <option value="">Select</option>
+                  <option>Treatment complete</option>
+                  <option>Ongoing treatment</option>
+                  <option>Surgery scheduled or recommended</option>
+                  <option>Not yet treated but plan to seek care</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Have You Injured the Same Body Part Before?</label>
+                <select name="piPriorInjury">
+                  <option value="">Select</option>
+                  <option>No</option>
+                  <option>Yes</option>
+                </select>
+                <p class="hint">Prior injuries do not disqualify your claim, but we must know about them now rather than later.</p>
+              </div>
+              <div class="form-group">
+                <label>Were There Witnesses?</label>
+                <select name="piWitnesses">
+                  <option value="">Select</option>
+                  <option>Yes, names and contact info available</option>
+                  <option>Yes, names only</option>
+                  <option>Unknown witnesses were present</option>
+                  <option>No witnesses</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Estimated Medical Bills to Date</label>
+                <select name="piMedicalBills">
+                  <option value="">Select range</option>
+                  <option>Under $5,000</option>
+                  <option>$5,000 to $25,000</option>
+                  <option>$25,000 to $100,000</option>
+                  <option>Over $100,000</option>
+                  <option>Unknown or still accruing</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Have You Missed Work Because of the Injury?</label>
+                <select name="piLostWork">
+                  <option value="">Select</option>
+                  <option>No</option>
+                  <option>Yes, less than one week</option>
+                  <option>Yes, one week to one month</option>
+                  <option>Yes, more than one month</option>
+                  <option>Yes, unable to return to work</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Have Any Insurance Claims Been Filed?</label>
+                <select name="piInsurance">
+                  <option value="">Select</option>
+                  <option>Yes, with the at-fault party's insurer</option>
+                  <option>Yes, with my own insurance</option>
+                  <option>Yes, both</option>
+                  <option>No</option>
+                  <option>A claim was filed and denied</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Have You Given a Recorded Statement to Any Insurer?</label>
+                <select name="piRecordedStatement">
+                  <option value="">Select</option>
+                  <option>No</option>
+                  <option>Yes, to the other party's insurer</option>
+                  <option>Yes, to my own insurer</option>
+                  <option>Yes, to both</option>
+                </select>
+                <p class="hint">If an insurer has contacted you, you are not required to give a recorded statement before speaking with an attorney.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ④ Dynamic: Construction Defect Fields -->
+          <div class="form-card dynamic-fields" id="defectFields">
+            <div class="form-card-title">
+              <div class="step-num">4</div>
+              Construction Defect Details
+            </div>
+            <p style="font-size:0.88rem;color:var(--slate);margin-bottom:1.5rem;">Nevada constructional defect claims are governed by NRS Chapter 40, which requires specific pre-litigation steps and imposes deadlines measured from completion of the work. The dates below are important to your claim.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Type of Property</label>
+                <select name="cdPropertyType">
+                  <option value="">Select</option>
+                  <option>Single family home</option>
+                  <option>Townhome or condominium unit</option>
+                  <option>Common area of an HOA community</option>
+                  <option>Multi-family or apartment building</option>
+                  <option>Commercial building</option>
+                  <option>Addition, remodel, or renovation</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Your Interest in the Property</label>
+                <select name="cdInterest">
+                  <option value="">Select</option>
+                  <option>Original owner, purchased new from builder</option>
+                  <option>Subsequent owner, purchased resale</option>
+                  <option>HOA board member or association representative</option>
+                  <option>Landlord or investor</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Approximate Date Construction Was Completed</label>
+                <input type="date" name="cdCompletionDate">
+                <p class="hint">Or the date you closed escrow on a new build. This date drives the statutory deadlines.</p>
+              </div>
+              <div class="form-group">
+                <label>When Did You First Notice the Problem?</label>
+                <input type="date" name="cdDiscoveryDate">
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label>What Defects Have You Observed?</label>
+                <div class="checkbox-group">
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="water"> <span>Water intrusion (roof, windows, doors, walls)</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="drainage"> <span>Improper grading or site drainage</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="foundation"> <span>Foundation cracking, settling, or soil movement</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="structural"> <span>Structural or framing deficiencies</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="stucco"> <span>Stucco, siding, or exterior finish failure</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="roofing"> <span>Roofing defects</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="plumbing"> <span>Plumbing defects or leaks</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="electrical"> <span>Electrical defects or code violations</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="hvac"> <span>HVAC or mechanical system defects</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="mold"> <span>Mold or rot resulting from a defect</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="windows"> <span>Window or door installation failures</span></label>
+                  <label class="checkbox-item"><input type="checkbox" name="cdDefects" value="other"> <span>Other defects</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label>Name of the Builder, Developer, or Contractor</label>
+                <input type="text" name="cdBuilder" placeholder="Company name exactly as it appears on your contract or documents">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Have You Notified the Builder or Contractor?</label>
+                <select name="cdNotice">
+                  <option value="">Select</option>
+                  <option>Yes, formal written notice under NRS Chapter 40</option>
+                  <option>Yes, written notice but not a Chapter 40 notice</option>
+                  <option>Yes, verbally only</option>
+                  <option>No, not yet</option>
+                  <option>Unsure what type of notice was sent</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Has Any Repair Been Attempted?</label>
+                <select name="cdRepairs">
+                  <option value="">Select</option>
+                  <option>No repairs attempted</option>
+                  <option>Builder repaired, problem returned</option>
+                  <option>Builder repaired, problem unresolved</option>
+                  <option>Builder refused to repair</option>
+                  <option>I paid for repairs myself</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Has Any Inspection or Expert Evaluation Been Performed?</label>
+                <select name="cdInspection">
+                  <option value="">Select</option>
+                  <option>Yes, licensed home inspector</option>
+                  <option>Yes, structural or civil engineer</option>
+                  <option>Yes, industrial hygienist or mold assessment</option>
+                  <option>Yes, more than one type</option>
+                  <option>No, not yet</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Is an HOA Involved?</label>
+                <select name="cdHOA">
+                  <option value="">Select</option>
+                  <option>Yes, and the HOA is aware of the defects</option>
+                  <option>Yes, but the HOA has not been notified</option>
+                  <option>Yes, and the HOA is pursuing its own claim</option>
+                  <option>No HOA</option>
+                  <option>Unsure</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Do Neighbors Report Similar Problems?</label>
+                <select name="cdNeighbors">
+                  <option value="">Select</option>
+                  <option>Yes, many homes in the community</option>
+                  <option>Yes, a few neighbors</option>
+                  <option>No, appears limited to my property</option>
+                  <option>Unknown</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Estimated Cost to Repair</label>
+                <select name="cdRepairCost">
+                  <option value="">Select range</option>
+                  <option>Under $25,000</option>
+                  <option>$25,000 to $100,000</option>
+                  <option>$100,000 to $500,000</option>
+                  <option>Over $500,000</option>
+                  <option>Unknown, need evaluation</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row full">
+              <div class="form-group">
+                <label>Do You Still Have Your Purchase or Construction Contract and Warranty Documents?</label>
+                <select name="cdDocuments">
+                  <option value="">Select</option>
+                  <option>Yes, I have the full set</option>
+                  <option>Some, but not all</option>
+                  <option>No, I no longer have them</option>
+                  <option>Unsure</option>
                 </select>
               </div>
             </div>
@@ -1964,7 +2341,7 @@
             </div>
             <div class="submit-area">
               <button type="submit" class="btn btn-primary submit-btn">Submit Free Case Review →</button>
-              <p class="submit-disclaimer">Your information is protected under attorney-client privilege and Nevada Bar confidentiality rules. We will never share your information without your consent. By submitting, you agree to our <a href="#">Privacy Policy</a> and <a href="#">Terms of Use</a>.</p>
+              <p class="submit-disclaimer">Information you submit is treated as confidential and is used solely to check for conflicts of interest and evaluate your potential claim. Submitting this form does not create an attorney-client relationship.</p>
             </div>
           </div>
 
@@ -2038,14 +2415,14 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
               </div>
               <div>
-                <div class="badge badge-navy" style="margin-bottom:0.4rem;">Up to $25,000</div>
+                <div class="badge badge-navy" style="margin-bottom:0.4rem;">Up to $15,000</div>
                 <h3>Justice Court Civil Division</h3>
               </div>
             </div>
-            <p>Nevada Justice Courts hold general civil jurisdiction over claims not exceeding $25,000, exclusive of interest and costs (NRS 4.370). The full Nevada Rules of Civil Procedure apply, attorneys appear on behalf of clients, and the evidentiary and procedural standards are equivalent to those of the District Court at this claim level.</p>
+            <p>Nevada Justice Courts hold general civil jurisdiction over claims not exceeding $15,000, exclusive of interest and costs (NRS 4.370). The full Nevada Rules of Civil Procedure apply, attorneys appear on behalf of clients, and the evidentiary and procedural standards are equivalent to those of the District Court at this claim level.</p>
             <h4 style="font-size:1rem;color:var(--navy);margin:1rem 0 0.5rem;">Key Characteristics</h4>
             <ul>
-              <li>Jurisdictional limit of $25,000, exclusive of interest and costs (NRS 4.370)</li>
+              <li>Jurisdictional limit of $15,000, exclusive of interest and costs (NRS 4.370)</li>
               <li>Full attorney representation permitted and common</li>
               <li>Nevada Rules of Civil Procedure apply in most departments</li>
               <li>Discovery available: interrogatories, document requests, depositions</li>
@@ -2070,7 +2447,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr><td>Jurisdictional Limit</td><td>$10,000 (NRS 73.010)</td><td>$25,000 (NRS 4.370)</td></tr>
+              <tr><td>Jurisdictional Limit</td><td>$10,000 (NRS 73.010)</td><td>$15,000 (NRS 4.370)</td></tr>
               <tr><td>Attorney Representation</td><td>Generally not permitted at hearing without consent</td><td>Fully permitted; common for defendants</td></tr>
               <tr><td>Procedural Rules</td><td>Simplified; informal</td><td>Nevada Rules of Civil Procedure</td></tr>
               <tr><td>Discovery</td><td>Limited or unavailable</td><td>Available: interrogatories, documents, depositions</td></tr>
@@ -2091,7 +2468,7 @@
           <div class="badge badge-silver">The Case for Justice Court</div>
           <h2 style="margin-top:1rem;">Advantages of Pursuing Your Claim in Justice Court</h2>
           <div class="rule-silver" style="margin:1.25rem auto;"></div>
-          <p style="max-width:640px;margin:0 auto;">For nuisance and premises liability claims under $25,000, Justice Court provides a structured, formal legal process with meaningful procedural tools. These advantages matter when the other side has insurance, counsel, or a financial interest in minimizing your recovery.</p>
+          <p style="max-width:640px;margin:0 auto;">For nuisance and premises liability claims under $15,000, Justice Court provides a structured, formal legal process with meaningful procedural tools. These advantages matter when the other side has insurance, counsel, or a financial interest in minimizing your recovery.</p>
         </div>
         <div class="why-grid" style="margin-top:2.5rem;">
           <div class="why-item">
@@ -2137,29 +2514,33 @@
           </div>
           <div>
             <div class="badge badge-silver" style="margin-bottom:1rem;">What We Assess at Intake</div>
-            <h2 style="margin-bottom:1rem;">What You Still Need to Prove</h2>
+            <h2 style="margin-bottom:1rem;">Four Things We Still Have to Prove</h2>
             <div class="rule-silver"></div>
-            <p>The jurisdictional threshold changes the venue. It does not lower the substantive legal bar. To prevail in Justice Court on a nuisance or premises liability claim, you must establish each element of your cause of action by a preponderance of the evidence. Those elements are the same whether the claim is worth $8,000 or $800,000.</p>
+            <p>A smaller dollar amount changes which courthouse you are in. It does not lower the bar. You have to prove the same things, to the same standard, whether your claim is worth $8,000 or $800,000. Lawyers call these the elements of a claim.</p>
             <div class="elements-grid" style="grid-template-columns:1fr 1fr;margin-top:1.5rem;">
               <div class="element-item">
                 <div class="element-num">01</div>
-                <h4>Duty or Right</h4>
-                <p>A legal duty owed to you, or a property right interfered with.</p>
+                <h4>You Had a Right</h4>
+                <div class="element-term">duty or right</div>
+                <p>Either they owed you a duty to act safely, or you held a property right they were bound to respect.</p>
               </div>
               <div class="element-item">
                 <div class="element-num">02</div>
-                <h4>Breach or Interference</h4>
-                <p>Conduct by the defendant that violates that duty or right.</p>
+                <h4>They Violated It</h4>
+                <div class="element-term">breach or interference</div>
+                <p>They did something, or failed to do something, that crossed that line.</p>
               </div>
               <div class="element-item">
                 <div class="element-num">03</div>
-                <h4>Causation</h4>
-                <p>A direct causal link between the defendant's conduct and your harm.</p>
+                <h4>They Caused It</h4>
+                <div class="element-term">causation</div>
+                <p>The harm traces back to them, and not to some other source.</p>
               </div>
               <div class="element-item">
                 <div class="element-num">04</div>
-                <h4>Quantifiable Damages</h4>
-                <p>Actual, provable losses within the $25,000 jurisdictional limit.</p>
+                <h4>It Cost You</h4>
+                <div class="element-term">damages</div>
+                <p>Real losses you can document, adding up to $15,000 or less. That ceiling is what puts your case in Justice Court.</p>
               </div>
             </div>
             <div style="margin-top:1.5rem;padding:1rem;background:var(--light-bg);border-radius:3px;border-left:3px solid var(--navy);">
@@ -2184,6 +2565,217 @@
 
   </div>
 </div><!-- /page-justice -->
+
+<!-- ═══════════════════════════════════════
+     PAGE: PERSONAL INJURY
+═══════════════════════════════════════ -->
+<div id="page-injury" class="page">
+  <div class="pt-nav">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb">Practice Areas <span>/ Personal Injury</span></p>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Personal Injury</div>
+        <h1>Personal Injury Representation in Nevada</h1>
+        <p>When another party's negligence causes you physical harm, Nevada law entitles you to compensation for the full measure of your losses. Assured Law pursues personal injury claims with the same disciplined, evidence-first approach we apply across our practice.</p>
+      </div>
+    </div>
+
+    <section style="padding:4rem 0 2rem;">
+      <div class="container">
+        <div class="intro-text" style="padding:0;">
+          <div class="badge badge-navy" style="margin-bottom:1rem;">The Legal Foundation</div>
+          <h2 style="margin-bottom:1rem;">What a Personal Injury Claim Requires</h2>
+          <div class="rule-silver rule-center"></div>
+          <p>A personal injury claim in Nevada rests on negligence: the failure of another person or business to exercise reasonable care, resulting in harm to you. The claim succeeds or fails on evidence. Medical records, witness accounts, scene documentation, and a clear causal chain between the defendant's conduct and your injuries determine the outcome, not the severity of the harm alone.</p>
+          <p>Nevada applies modified comparative negligence: you may recover so long as you are not more than 50 percent at fault, with your recovery reduced by your percentage of fault. Building the record that fixes responsibility where it belongs is the core of our work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:2rem 0 4rem;background:var(--light-bg);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-silver">What We Handle</div>
+          <h2 style="margin-top:1rem;">Injury Claims We Pursue</h2>
+          <div class="rule-silver" style="margin:1.25rem auto;"></div>
+        </div>
+        <div class="incident-types">
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            </div>
+            <div>
+              <h4>Injuries on Dangerous Property</h4>
+              <p>Falls, structural failures, and hazardous conditions, pursued alongside our premises liability practice.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <h4>Negligent Maintenance Injuries</h4>
+              <p>Harm caused by deferred repairs, defective fixtures, and failures to maintain safe conditions.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <h4>Exposure and Environmental Injury</h4>
+              <p>Physical harm from mold, chemical, or hazardous material exposure connected to nuisance conditions.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div>
+              <h4>Wrongful Death</h4>
+              <p>Claims on behalf of families and estates where negligence resulted in the loss of a loved one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:4rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-navy">Your Recovery</div>
+          <h2 style="margin-top:1rem;">Damages Available in Nevada</h2>
+          <div class="rule-silver" style="margin:1.25rem auto;"></div>
+        </div>
+        <div class="damages-grid">
+          <div class="damage-box">
+            <h4>Economic Damages</h4>
+            <ul>
+              <li>Past and future medical expenses</li>
+              <li>Lost wages and diminished earning capacity</li>
+              <li>Rehabilitation and therapy costs</li>
+              <li>In-home care and medical equipment</li>
+            </ul>
+          </div>
+          <div class="damage-box">
+            <h4>Non-Economic Damages</h4>
+            <ul>
+              <li>Pain and suffering</li>
+              <li>Emotional distress</li>
+              <li>Loss of enjoyment of life</li>
+              <li>Permanent disability or disfigurement</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:2.5rem;text-align:center;">
+          <p style="margin-bottom:1.25rem;">Nevada's statute of limitations for most injury claims is two years from the date of injury. Delay narrows your options and erodes evidence.</p>
+          <a class="btn btn-primary" onclick="navigate('review')">Get a Free Case Review</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /page-injury -->
+
+<!-- ═══════════════════════════════════════
+     PAGE: CONSTRUCTION DEFECT
+═══════════════════════════════════════ -->
+<div id="page-defect" class="page">
+  <div class="pt-nav">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb">Practice Areas <span>/ Construction Defect</span></p>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Construction Defect</div>
+        <h1>Construction Defect Claims in Nevada</h1>
+        <p>Defective construction damages the largest investment most people ever make. Nevada law provides a specific statutory path for holding builders, contractors, and developers accountable, and following that path correctly is essential to preserving your claim.</p>
+      </div>
+    </div>
+
+    <section style="padding:4rem 0 2rem;">
+      <div class="container">
+        <div class="intro-text" style="padding:0;">
+          <div class="badge badge-navy" style="margin-bottom:1rem;">The Statutory Framework</div>
+          <h2 style="margin-bottom:1rem;">Nevada's Chapter 40 Process</h2>
+          <div class="rule-silver rule-center"></div>
+          <p>Constructional defect claims in Nevada are governed by NRS Chapter 40, which requires a homeowner to serve a detailed written notice of the defects on the contractor before filing suit, and gives the contractor an opportunity to inspect and offer repairs. Failure to follow the pre-litigation process correctly can delay or jeopardize the claim entirely.</p>
+          <p>Our team's background in property management and compliance enforcement translates directly here: identifying defects, documenting them to the standard the statute requires, and managing the notice, inspection, and repair-offer sequence with precision.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:2rem 0 4rem;background:var(--light-bg);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-silver">Common Defects</div>
+          <h2 style="margin-top:1rem;">Defect Categories We Pursue</h2>
+          <div class="rule-silver" style="margin:1.25rem auto;"></div>
+        </div>
+        <div class="incident-types">
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div>
+              <h4>Water Intrusion and Drainage</h4>
+              <p>Roof and window leaks, improper grading, failed waterproofing, and the mold and rot that follow.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+            </div>
+            <div>
+              <h4>Structural and Foundation</h4>
+              <p>Soil movement, foundation cracking, framing deficiencies, and load-bearing failures.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <div>
+              <h4>Mechanical, Electrical, Plumbing</h4>
+              <p>Code violations and defective installation of the systems a home depends on.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div>
+              <h4>Stucco, Roofing, and Exterior Systems</h4>
+              <p>Installation failures in exterior finishes that admit water and degrade the structure over time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:4rem 0;">
+      <div class="container">
+        <div class="two-col" style="gap:4rem;align-items:start;">
+          <div>
+            <div class="badge badge-navy" style="margin-bottom:1rem;">Act Promptly</div>
+            <h2 style="margin-bottom:1rem;">Deadlines Are Unforgiving</h2>
+            <div class="rule-silver"></div>
+            <p>Nevada imposes a statute of repose on constructional defect claims measured from substantial completion of the improvement, in addition to limitations periods that run from discovery of the defect. These deadlines interact in ways that are unforgiving to homeowners who wait. If you suspect a defect, the time to have it evaluated is now, not after the next rainy season proves the point.</p>
+            <p>Document everything from the outset: photographs, repair invoices, correspondence with the builder, and any expert observations. That record is the foundation of the Chapter 40 notice.</p>
+          </div>
+          <div>
+            <div class="badge badge-silver" style="margin-bottom:1rem;">HOAs and Communities</div>
+            <h2 style="margin-bottom:1rem;">Individual and Association Claims</h2>
+            <div class="rule-silver"></div>
+            <p>Construction defects rarely affect one home in isolation. Common defects across a community may support an association claim, while defects within your unit support an individual claim. Our property management background gives us particular fluency in the HOA context: governing documents, board dynamics, and the division between association and homeowner responsibility.</p>
+            <a class="btn btn-primary" style="margin-top:0.5rem;" onclick="navigate('review')">Request a Defect Evaluation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /page-defect -->
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -2211,7 +2803,7 @@
             <circle cx="0" cy="-50" r="8" fill="rgba(255,255,255,0.7)" stroke="none"/>
           </g>
         </svg>
-        <p style="margin-top:1rem;">Founded by professionals with 50+ years in property management and regulatory compliance, now channeling that expertise into legal advocacy for clients harmed by nuisance and negligent property owners across Nevada.</p>
+        <p style="margin-top:1rem;">Founded by professionals with 25 years in property management, regulatory compliance, and construction, now channeling that experience into legal advocacy for clients harmed across Nevada.</p>
         <p style="font-size:0.78rem;color:rgba(255,255,255,0.35);margin-top:0.5rem;">www.assuredlaw.com</p>
       </div>
       <div class="footer-col">
@@ -2223,6 +2815,8 @@
           <li><a onclick="navigate('premises')">Premises Liability</a></li>
           <li><a onclick="navigate('premises')">Slip &amp; Fall</a></li>
           <li><a onclick="navigate('justice')">Justice Court Claims</a></li>
+          <li><a onclick="navigate('injury')">Personal Injury</a></li>
+          <li><a onclick="navigate('defect')">Construction Defect</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2240,7 +2834,7 @@
           <li><a href="mailto:contact@assuredlaw.com" style="text-transform:none;letter-spacing:0;">contact@assuredlaw.com</a></li>
           <li><a href="tel:7028253747">(702) 825-3747</a></li>
           <li style="color:rgba(255,255,255,0.45);font-size:0.85rem;">Fax: (866) 248-6564</li>
-          <li style="color:rgba(255,255,255,0.45);font-size:0.85rem;line-height:1.5;">635 W Lake Mead Pkwy<br>Henderson, NV 89015</li>
+          <li style="color:rgba(255,255,255,0.45);font-size:0.85rem;line-height:1.5;">635 W Lake Mead Parkway<br>Henderson, NV 89015</li>
           <li style="margin-top:0.75rem;">
             <a class="btn btn-primary" style="font-size:0.78rem;padding:0.5rem 1rem;" onclick="navigate('review')">Free Consultation</a>
           </li>
@@ -2257,7 +2851,7 @@
 
 <script>
   // ── Navigation ──
-  const pages = ['home','nuisance','premises','review','justice'];
+  const pages = ['home','nuisance','premises','review','justice','injury','defect'];
 
   function navigate(page) {
     pages.forEach(p => {
@@ -2295,6 +2889,8 @@
       document.getElementById('nuisanceFields').classList.remove('visible');
       document.getElementById('premisesFields').classList.toggle('visible', type === 'premises');
       document.getElementById('justiceFields').classList.toggle('visible', type === 'justice');
+      document.getElementById('injuryFields').classList.toggle('visible', type === 'injury');
+      document.getElementById('defectFields').classList.toggle('visible', type === 'defect');
       document.getElementById('evidenceStep').textContent = '5';
       document.getElementById('legalStep').textContent = '6';
     }
