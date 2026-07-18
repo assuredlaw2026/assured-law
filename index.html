@@ -451,6 +451,8 @@
   .success-msg .check { font-size: 2.5rem; margin-bottom: 1rem; }
   .success-msg h3 { color: var(--success); }
   .success-msg p { color: #166534; }
+  .form-error { display: none; margin-top: 1rem; padding: 0.9rem 1.1rem; background: #FEF2F2; border: 1.5px solid #FCA5A5; border-radius: 4px; color: #991B1B; font-size: 0.9rem; text-align: left; }
+  .form-error.visible { display: block; }
 
   /* ══════════════════════════════════════
      FOOTER
@@ -1391,6 +1393,9 @@
 
         <form id="caseForm" onsubmit="submitForm(event)" novalidate>
 
+          <!-- Spam honeypot: hidden from users, flagged by Web3Forms if filled. -->
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none !important;">
+
           <!-- ① Case Type -->
           <div class="form-card">
             <div class="form-card-title">
@@ -2213,7 +2218,7 @@
               <div class="form-group">
                 <label>Upload Photos of the Hazard / Incident Scene</label>
                 <div class="upload-zone" id="photoZone">
-                  <input type="file" multiple accept="image/*,video/*" onchange="handleFiles(this,'photoList','photoCount')">
+                  <input type="file" name="photos" data-list="photoList" multiple accept="image/*,video/*" onchange="renderFileList(this)">
                   <div class="up-icon">📸</div>
                   <strong>Drag & drop photos or videos here</strong>
                   <p>Scene photos, property condition, visible hazards, signage (or lack thereof), surroundings</p>
@@ -2227,7 +2232,7 @@
               <div class="form-group">
                 <label>Upload Injury or Damage Documentation</label>
                 <div class="upload-zone" id="injuryZone">
-                  <input type="file" multiple accept="image/*,.pdf,.doc,.docx" onchange="handleFiles(this,'injuryList','injuryCount')">
+                  <input type="file" name="injuryDocs" data-list="injuryList" multiple accept="image/*,.pdf,.doc,.docx" onchange="renderFileList(this)">
                   <div class="up-icon">🏥</div>
                   <strong>Medical records, injury photos, bills & invoices</strong>
                   <p>ER records, physician notes, imaging results, pharmacy receipts, bills, treatment plans</p>
@@ -2241,7 +2246,7 @@
               <div class="form-group">
                 <label>Upload Other Supporting Documents</label>
                 <div class="upload-zone" id="docsZone">
-                  <input type="file" multiple accept=".pdf,.doc,.docx,.txt,.xls,.xlsx,image/*" onchange="handleFiles(this,'docsList','docsCount')">
+                  <input type="file" name="documents" data-list="docsList" multiple accept=".pdf,.doc,.docx,.txt,.xls,.xlsx,image/*" onchange="renderFileList(this)">
                   <div class="up-icon">📄</div>
                   <strong>Reports, correspondence, permits, records</strong>
                   <p>Police / incident reports, letters to property owner, permit violations, inspection records, lab/environmental test results, expert reports, HOA notices, leases</p>
@@ -2340,7 +2345,8 @@
               </label>
             </div>
             <div class="submit-area">
-              <button type="submit" class="btn btn-primary submit-btn">Submit Free Case Review →</button>
+              <button type="submit" id="submitBtn" class="btn btn-primary submit-btn">Submit Free Case Review →</button>
+              <p class="form-error" id="formError" role="alert"></p>
               <p class="submit-disclaimer">Information you submit is treated as confidential and is used solely to check for conflicts of interest and evaluate your potential claim. Submitting this form does not create an attorney-client relationship.</p>
             </div>
           </div>
@@ -2897,10 +2903,14 @@
   }
 
   // ── File Upload Handling ──
-  function handleFiles(input, listId, countId) {
-    const list = document.getElementById(listId);
-    const files = Array.from(input.files);
-    files.forEach(file => {
+  // Each input's FileList is the single source of truth for what gets
+  // transmitted as attachments, so the visible list is always rebuilt from it
+  // and the remove button removes the file from the input too — what you see
+  // is exactly what is sent.
+  function renderFileList(input) {
+    const list = document.getElementById(input.dataset.list);
+    list.innerHTML = '';
+    Array.from(input.files).forEach((file, index) => {
       const item = document.createElement('div');
       item.className = 'file-item';
       const ext = file.name.split('.').pop().toUpperCase();
@@ -2910,10 +2920,27 @@
           <span>${file.name}</span>
           <span style="color:var(--text-muted)">(${(file.size/1024).toFixed(0)} KB)</span>
         </div>
-        <button type="button" onclick="this.closest('.file-item').remove()" title="Remove">✕</button>
+        <button type="button" title="Remove">✕</button>
       `;
+      item.querySelector('button').addEventListener('click', () => removeFile(input, index));
       list.appendChild(item);
     });
+  }
+
+  // Merge newly dropped files into the input, preserving any already selected.
+  function addFiles(input, fileList) {
+    const dt = new DataTransfer();
+    Array.from(input.files).forEach(f => dt.items.add(f));
+    Array.from(fileList).forEach(f => dt.items.add(f));
+    input.files = dt.files;
+    renderFileList(input);
+  }
+
+  function removeFile(input, index) {
+    const dt = new DataTransfer();
+    Array.from(input.files).forEach((f, i) => { if (i !== index) dt.items.add(f); });
+    input.files = dt.files;
+    renderFileList(input);
   }
 
   // ── Severity Rating ──
@@ -2928,32 +2955,88 @@
   }
 
   // ── Form Submission ──
-  function submitForm(e) {
+  // Public Web3Forms access key. Safe to live in client-side code: it only
+  // permits sending to the firm's verified inbox, not reading submissions.
+  const WEB3FORMS_ACCESS_KEY = 'f9d39be0-ef4e-4cd5-8773-4672994b7074';
+
+  const CASE_TYPE_LABELS = {
+    premises: 'Premises Liability',
+    justice: 'Justice Court Claim',
+    injury: 'Personal Injury',
+    defect: 'Construction Defect'
+  };
+
+  async function submitForm(e) {
     e.preventDefault();
     const form = document.getElementById('caseForm');
     const consent = form.querySelector('[name="consent"]');
     const accurate = form.querySelector('[name="accurate"]');
-    const caseType = form.querySelector('input[name="caseType"]:checked');
+    const caseTypeInput = form.querySelector('input[name="caseType"]:checked');
     const firstName = form.querySelector('[name="firstName"]');
+    const errorEl = document.getElementById('formError');
 
-    if (!caseType) { alert('Please select a case type to continue.'); return; }
+    if (!caseTypeInput) { alert('Please select a case type to continue.'); return; }
     if (!consent.checked || !accurate.checked) { alert('Please confirm the consent statements before submitting.'); return; }
-    if (!firstName.value) { alert('Please provide your name.'); return; }
+    if (!firstName.value.trim()) { alert('Please provide your name.'); return; }
 
-    // Simulate submission
-    form.style.display = 'none';
-    const msg = document.getElementById('successMsg');
-    msg.style.display = 'block';
-    window.scrollTo({ top: msg.offsetTop - 100, behavior: 'smooth' });
+    const caseType = caseTypeInput.value;
+
+    // Exclude the hidden case-type sections so a submission carries only the
+    // fields relevant to the selected case type, not empty fields from the others.
+    const disabledFields = [];
+    ['premisesFields', 'justiceFields', 'injuryFields', 'defectFields']
+      .filter(id => id !== caseType + 'Fields')
+      .map(id => document.getElementById(id))
+      .filter(Boolean)
+      .forEach(section => {
+        section.querySelectorAll('input, select, textarea').forEach(el => {
+          if (!el.disabled) { el.disabled = true; disabledFields.push(el); }
+        });
+      });
+
+    const btn = document.getElementById('submitBtn');
+    const originalBtnText = btn.textContent;
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    errorEl.classList.remove('visible');
+
+    try {
+      const data = new FormData(form);
+      data.append('access_key', WEB3FORMS_ACCESS_KEY);
+      data.append('subject', 'New Case Review — ' + (CASE_TYPE_LABELS[caseType] || caseType));
+      data.append('from_name', 'Assured Law Website');
+
+      const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+      const result = await res.json();
+
+      if (res.ok && result.success) {
+        form.style.display = 'none';
+        const msg = document.getElementById('successMsg');
+        msg.style.display = 'block';
+        window.scrollTo({ top: msg.offsetTop - 100, behavior: 'smooth' });
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch (err) {
+      errorEl.textContent = 'We couldn’t submit your case review. Please try again in a moment, or call us directly and we’ll take your information by phone.';
+      errorEl.classList.add('visible');
+      btn.disabled = false;
+      btn.textContent = originalBtnText;
+    } finally {
+      // Restore the fields we disabled so the form remains usable after an error.
+      disabledFields.forEach(el => { el.disabled = false; });
+    }
   }
 
   // ── Drag & Drop ──
   document.querySelectorAll('.upload-zone').forEach(zone => {
+    const input = zone.querySelector('input[type="file"]');
     zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
     zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
     zone.addEventListener('drop', e => {
       e.preventDefault();
       zone.classList.remove('drag-over');
+      if (input && e.dataTransfer.files.length) addFiles(input, e.dataTransfer.files);
     });
   });
 </script>
