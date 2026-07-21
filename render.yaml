@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: assured-law
+    runtime: static
+    branch: main
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true
