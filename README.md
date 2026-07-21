@@ -20,29 +20,33 @@ assets/assured-law-logo.svg   Original logo asset (the logo is also embedded
 
 Routing is handled in JavaScript by the `navigate()` function. Page IDs:
 
-| Route      | Content                                                    |
-|------------|------------------------------------------------------------|
-| `home`     | Dictionary hero, stats, practice areas, CTA                |
-| `nuisance` | Public vs. private nuisance, five elements, remedies       |
-| `premises` | Duty of care tiers, incident types, five elements, damages |
-| `justice`  | Small claims vs. Justice Court, advantages, four elements  |
-| `injury`   | Negligence framework, claim types, damages                 |
-| `defect`   | NRS Chapter 40 process, defect categories, HOA claims      |
-| `review`   | Clio Grow scheduler, nuisance intake embed, on-page form   |
+| Route        | Content                                                    |
+|--------------|------------------------------------------------------------|
+| `home`       | Dictionary hero, stats, practice areas, CTA                |
+| `nuisance`   | Public vs. private nuisance, five elements, remedies       |
+| `premises`   | Duty of care tiers, incident types, five elements, damages |
+| `justice`    | Small claims vs. Justice Court, advantages, four elements  |
+| `injury`     | Negligence framework, claim types, damages                 |
+| `defect`     | NRS Chapter 40 process, defect categories, HOA claims      |
+| `review`     | Clio Grow scheduler, nuisance intake embed, on-page form   |
+| `privacy`    | Privacy Policy                                             |
+| `terms`      | Terms of Use                                               |
+| `disclaimer` | Disclaimer                                                 |
 
 ## Third-Party Integrations
 
 1. **Google Fonts.** Cormorant Garamond and Inter, loaded from fonts.googleapis.com.
 2. **Clio Grow scheduler.** Iframe on the Case Consultation page, pointing to `https://mygoodlawyers.cliogrow.com/book`.
 3. **Clio Grow nuisance intake form.** Iframe shown when "Nuisance Claim" is selected, pointing to `https://mygoodlawyers.cliogrow.com/intake/551caf0df0fccdca5be4e8de62d7ac0d`.
+4. **Web3Forms.** The on-page case review form POSTs to `https://api.web3forms.com/submit`. On failure it surfaces an error and directs the visitor to call the firm instead.
 
-Both iframes have a fallback direct link beneath them in case embedding is blocked by response headers.
+Both Clio iframes have a fallback direct link beneath them in case embedding is blocked by response headers.
 
-## Known Issues (Pre-Launch Blockers)
+## Open Items
 
-1. **The on-page intake form does not transmit data.** `submitForm()` validates input and displays a success message, but nothing is sent anywhere. This affects four of the five case-type paths (premises, Justice Court, personal injury, construction defect). Only the nuisance path routes to a live Clio form. Resolve before directing any traffic to the site.
-2. **Five placeholder links** (`href="#"`): Our Attorneys, Results, Privacy Policy, Terms of Use, Disclaimer. A privacy policy is needed given the third-party Clio embeds.
-3. **Single-URL architecture.** All pages share one URL, so search engines index one page. Acceptable at launch; revisit before investing in search traffic.
+1. **Two placeholder links** (`href="#"`) remain in the footer: Our Attorneys and Results.
+2. **Single-URL architecture.** All pages share one URL, so search engines index one page. Acceptable at launch; revisit before investing in search traffic.
+3. **Web3Forms access key is public.** This is inherent to a client-side form — the key is visible to any browser, so it is not a leak. It does mean anyone can POST to the endpoint. Enable domain restriction and spam filtering in the Web3Forms dashboard to limit abuse.
 
 ## Deployment (Render)
 
