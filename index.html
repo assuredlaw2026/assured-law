@@ -412,8 +412,8 @@
 
   .checkbox-group { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem; }
   .checkbox-item { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; }
-  .checkbox-item input[type="checkbox"] { margin-top: 3px; accent-color: var(--navy); flex-shrink: 0; }
-  .checkbox-item span { font-size: 0.88rem; color: var(--slate); }
+  .checkbox-item input[type="checkbox"] { width: auto; padding: 0; border: none; margin-top: 3px; accent-color: var(--navy); flex-shrink: 0; }
+  .checkbox-item span { font-size: 0.88rem; color: var(--slate); text-transform: none; font-weight: 400; letter-spacing: normal; }
 
   .upload-zone {
     border: 2px dashed var(--border); border-radius: 4px; padding: 2.5rem;
@@ -463,6 +463,18 @@
   .legal-doc li { margin-bottom: 0.45rem; }
   .legal-doc a { color: var(--navy); text-decoration: underline; }
   .legal-doc .legal-note { background: var(--light-bg); border-left: 3px solid var(--navy-mid); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.9rem; border-radius: 0 4px 4px 0; }
+  .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 880px; margin: 0 auto; }
+  .bio-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 2.25rem 2rem; text-align: center; }
+  .bio-photo { width: 116px; height: 116px; border-radius: 50%; background: var(--light-bg); margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; }
+  .bio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 0.25rem; }
+  .bio-role { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--navy-mid); font-weight: 600; margin-bottom: 1rem; }
+  .bio-card p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin: 0; }
+  .result-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; }
+  .result-card { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--navy-mid); border-radius: 0 6px 6px 0; padding: 1.5rem 1.75rem; }
+  .result-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-mid); font-weight: 700; margin-bottom: 0.5rem; }
+  .result-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.4rem; }
+  .result-card p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin: 0; }
+  @media (max-width: 640px) { .bio-grid { grid-template-columns: 1fr; } }
 
   /* ══════════════════════════════════════
      FOOTER
@@ -668,6 +680,16 @@
         </div>
       </div>
 
+      <!-- The Firm dropdown -->
+      <div class="nav-item">
+        <span>The Firm <span class="nav-caret">▼</span></span>
+        <div class="nav-dropdown">
+          <a onclick="navigate('about')">About Assured Law</a>
+          <a onclick="navigate('attorneys')">Our Attorneys</a>
+          <a onclick="navigate('results')">Results</a>
+        </div>
+      </div>
+
       <!-- Case Consultation -->
       <div class="nav-item">
         <a onclick="navigate('review')" data-page="review">Case Consultation</a>
@@ -718,6 +740,10 @@
   <a onclick="navigate('injury')" style="padding-left:1.5rem;font-size:0.82rem;">Personal Injury</a>
   <a onclick="navigate('defect')" style="padding-left:1.5rem;font-size:0.82rem;">Construction Defect</a>
   <a onclick="navigate('review')">Case Consultation</a>
+  <a onclick="navigate('about')">The Firm</a>
+  <a onclick="navigate('about')" style="padding-left:1.5rem;font-size:0.82rem;">About Assured Law</a>
+  <a onclick="navigate('attorneys')" style="padding-left:1.5rem;font-size:0.82rem;">Our Attorneys</a>
+  <a onclick="navigate('results')" style="padding-left:1.5rem;font-size:0.82rem;">Results</a>
   <div style="padding:0.75rem 0;border-bottom:1px solid var(--border);">
     <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--silver);margin-bottom:0.5rem;">Contact</div>
     <div style="font-size:0.85rem;color:var(--slate);margin-bottom:0.3rem;"><a href="mailto:contact@assuredlaw.com" style="color:var(--navy);text-transform:none;letter-spacing:0;padding:0;display:inline;">contact@assuredlaw.com</a></div>
@@ -3075,6 +3101,183 @@
   </div>
 </div><!-- /page-disclaimer -->
 
+<!--
+  ═══ ABOUT ═══
+  PLACEHOLDER content. Replace the lorem-style copy with the firm's real story,
+  mission, and values before launch. Keep "25 years" attributed to property
+  management / compliance / construction, never the practice of law.
+-->
+<div id="page-about" class="page">
+  <div class="pt-nav">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb">Assured Law <span>/ About</span></p>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">About the Firm</div>
+        <h1>About Assured Law</h1>
+        <p>Placeholder introduction. A short, plain-language statement of who Assured Law is and who the firm serves goes here.</p>
+      </div>
+    </div>
+
+    <section style="padding:4rem 0 2rem;">
+      <div class="container">
+        <div class="intro-text" style="padding:0;">
+          <div class="badge badge-navy" style="margin-bottom:1rem;">Our Story</div>
+          <h2 style="margin-bottom:1rem;">A Different Vantage Point</h2>
+          <div class="rule-silver rule-center"></div>
+          <p>Placeholder copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Assured Law was founded by professionals with 25 years of experience in property management, regulatory compliance, and the construction industry, experience that informs how the firm approaches its clients' matters today.</p>
+          <p>Placeholder copy. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:2rem 0 4rem;background:var(--light-bg);">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-silver">What Guides Us</div>
+          <h2 style="margin-top:1rem;">Our Approach</h2>
+          <div class="rule-silver" style="margin:1.25rem auto;"></div>
+        </div>
+        <div class="incident-types">
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <h4>Placeholder Value One</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <h4>Placeholder Value Two</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+            </div>
+          </div>
+          <div class="incident-item">
+            <div class="incident-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h4>Placeholder Value Three</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+          <a class="btn btn-primary" onclick="navigate('review')">Request a Free Case Review</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /page-about -->
+
+<!--
+  ═══ OUR ATTORNEYS ═══
+  PLACEHOLDER content. Replace names, titles, photos, and bios with the firm's
+  real attorney information. Bios must not attribute the 25 years of experience
+  to the practice of law.
+-->
+<div id="page-attorneys" class="page">
+  <div class="pt-nav">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb">Assured Law <span>/ Our Attorneys</span></p>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Our Attorneys</div>
+        <h1>Our Attorneys</h1>
+        <p>Placeholder introduction to the firm's attorneys. Replace with a short statement about the team.</p>
+      </div>
+    </div>
+
+    <section style="padding:4rem 0;">
+      <div class="container">
+        <div class="bio-grid">
+
+          <div class="bio-card">
+            <div class="bio-photo">
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0114 0v1"/></svg>
+            </div>
+            <h3>Attorney Name</h3>
+            <div class="bio-role">Founding Attorney</div>
+            <p>Placeholder bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </div>
+
+          <div class="bio-card">
+            <div class="bio-photo">
+              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0114 0v1"/></svg>
+            </div>
+            <h3>Attorney Name</h3>
+            <div class="bio-role">Founding Attorney</div>
+            <p>Placeholder bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /page-attorneys -->
+
+<!--
+  ═══ RESULTS ═══
+  PLACEHOLDER content. Replace with real, substantiated representative matters.
+  Do not publish fabricated outcomes or figures. Per firm compliance rules,
+  avoid unsubstantiated results claims and superlatives. Keep the disclaimer.
+-->
+<div id="page-results" class="page">
+  <div class="pt-nav">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="breadcrumb">Assured Law <span>/ Results</span></p>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Results</div>
+        <h1>Representative Matters</h1>
+        <p>Placeholder introduction. A brief, compliant statement about the firm's representative matters goes here.</p>
+      </div>
+    </div>
+
+    <section style="padding:4rem 0 2rem;">
+      <div class="container">
+        <div class="result-list">
+
+          <div class="result-card">
+            <span class="result-tag">Nuisance</span>
+            <h3>Representative Matter (Placeholder)</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative nuisance matter goes here. Replace with real, substantiated details.</p>
+          </div>
+
+          <div class="result-card">
+            <span class="result-tag">Premises Liability</span>
+            <h3>Representative Matter (Placeholder)</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative premises liability matter goes here. Replace with real, substantiated details.</p>
+          </div>
+
+          <div class="result-card">
+            <span class="result-tag">Personal Injury</span>
+            <h3>Representative Matter (Placeholder)</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative personal injury matter goes here. Replace with real, substantiated details.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:1rem 0 4rem;">
+      <div class="container">
+        <div class="legal-doc" style="max-width:820px;">
+          <div class="legal-note">Prior results do not guarantee or predict a similar outcome in any future matter. The results described here are illustrative placeholders and are not representations of actual outcomes. Every case is different and depends on its own facts. See our <a onclick="navigate('disclaimer')" style="cursor:pointer;">Disclaimer</a>.</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div><!-- /page-results -->
+
 <!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="container">
@@ -3120,10 +3323,10 @@
       <div class="footer-col">
         <h5>The Firm</h5>
         <ul>
-          <li><a onclick="navigate('home')">About Assured Law</a></li>
+          <li><a onclick="navigate('about')">About Assured Law</a></li>
           <li><a onclick="navigate('review')">Case Consultation</a></li>
-          <li><a href="#">Our Attorneys</a></li>
-          <li><a href="#">Results</a></li>
+          <li><a onclick="navigate('attorneys')">Our Attorneys</a></li>
+          <li><a onclick="navigate('results')">Results</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -3149,7 +3352,7 @@
 
 <script>
   // ── Navigation ──
-  const pages = ['home','nuisance','premises','review','justice','injury','defect','privacy','terms','disclaimer'];
+  const pages = ['home','nuisance','premises','review','justice','injury','defect','privacy','terms','disclaimer','about','attorneys','results'];
 
   function navigate(page) {
     pages.forEach(p => {

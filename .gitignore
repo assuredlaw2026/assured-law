@@ -3,3 +3,6 @@
 
 # macOS
 .DS_Store
+
+# Local working files (screenshots, scratch) — not part of the published site
+resources/
