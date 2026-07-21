@@ -1,0 +1,5 @@
+# Claude Code local session and settings data
+.claude/
+
+# macOS
+.DS_Store
