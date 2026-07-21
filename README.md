@@ -2,8 +2,12 @@
 
 Marketing website for Assured Law, a Nevada firm handling nuisance damage claims, premises liability litigation, Justice Court claims, personal injury, and construction defect.
 
-Live domain: www.assuredlaw.com
 Host: Render (static site, auto-deploys on push to `main`)
+Status: **not yet connected to a custom domain.** This site is served only at its
+Render-assigned URL. `www.assuredlaw.com` currently serves a separate, unrelated
+Wix site; this repository is its intended replacement. Pushing to `main` therefore
+does not change anything at www.assuredlaw.com. See Deployment below for the
+cutover steps.
 
 ## Structure
 
