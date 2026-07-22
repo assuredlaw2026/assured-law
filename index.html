@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Assured Law to Nuisance & Premises Liability Attorneys</title>
+<title>Assured Law | Nuisance & Premises Liability Attorneys</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -258,9 +258,8 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 2rem 3rem;
     text-align: center; max-width: 680px; margin: 0 auto;
   }
-  .stats-grid .stat-full { grid-column: 1 / -1; }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 700; color: var(--navy); line-height: 1; }
-  .stat-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.4rem; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.6rem; font-weight: 700; color: var(--navy); line-height: 1; }
+  .stat-label { font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-top: 0.4rem; }
 
   .intro-section { padding: 6rem 0; }
   .intro-copy { max-width: 780px; }
@@ -297,8 +296,6 @@
   .page-hero .badge { margin-bottom: 1.5rem; }
   .page-hero h1 { color: var(--navy); }
   .page-hero p { color: var(--slate); font-size: 1.05rem; max-width: 640px; margin: 1rem auto 0; }
-  .breadcrumb { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 1.5rem; }
-  .breadcrumb span { color: var(--silver-light); }
 
   .intro-text { max-width: 760px; margin: 0 auto; padding: 4rem 0 2rem; text-align: center; }
   .intro-text p { font-size: 1.05rem; }
@@ -463,18 +460,6 @@
   .legal-doc li { margin-bottom: 0.45rem; }
   .legal-doc a { color: var(--navy); text-decoration: underline; }
   .legal-doc .legal-note { background: var(--light-bg); border-left: 3px solid var(--navy-mid); padding: 1rem 1.25rem; margin: 1.25rem 0; font-size: 0.9rem; border-radius: 0 4px 4px 0; }
-  .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 880px; margin: 0 auto; }
-  .bio-card { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 2.25rem 2rem; text-align: center; }
-  .bio-photo { width: 116px; height: 116px; border-radius: 50%; background: var(--light-bg); margin: 0 auto 1.25rem; display: flex; align-items: center; justify-content: center; }
-  .bio-card h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: 0.25rem; }
-  .bio-role { font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.09em; color: var(--navy-mid); font-weight: 600; margin-bottom: 1rem; }
-  .bio-card p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin: 0; }
-  .result-list { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.25rem; }
-  .result-card { background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--navy-mid); border-radius: 0 6px 6px 0; padding: 1.5rem 1.75rem; }
-  .result-tag { display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy-mid); font-weight: 700; margin-bottom: 0.5rem; }
-  .result-card h3 { font-size: 1.05rem; color: var(--navy); margin-bottom: 0.4rem; }
-  .result-card p { font-size: 0.92rem; line-height: 1.7; color: var(--slate); margin: 0; }
-  @media (max-width: 640px) { .bio-grid { grid-template-columns: 1fr; } }
 
   /* ══════════════════════════════════════
      FOOTER
@@ -680,14 +665,9 @@
         </div>
       </div>
 
-      <!-- The Firm dropdown -->
+      <!-- The Firm -->
       <div class="nav-item">
-        <span>The Firm <span class="nav-caret">▼</span></span>
-        <div class="nav-dropdown">
-          <a onclick="navigate('about')">About Assured Law</a>
-          <a onclick="navigate('attorneys')">Our Attorneys</a>
-          <a onclick="navigate('results')">Results</a>
-        </div>
+        <a onclick="navigate('about')" data-page="about">The Firm</a>
       </div>
 
       <!-- Case Consultation -->
@@ -741,9 +721,6 @@
   <a onclick="navigate('defect')" style="padding-left:1.5rem;font-size:0.82rem;">Construction Defect</a>
   <a onclick="navigate('review')">Case Consultation</a>
   <a onclick="navigate('about')">The Firm</a>
-  <a onclick="navigate('about')" style="padding-left:1.5rem;font-size:0.82rem;">About Assured Law</a>
-  <a onclick="navigate('attorneys')" style="padding-left:1.5rem;font-size:0.82rem;">Our Attorneys</a>
-  <a onclick="navigate('results')" style="padding-left:1.5rem;font-size:0.82rem;">Results</a>
   <div style="padding:0.75rem 0;border-bottom:1px solid var(--border);">
     <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--silver);margin-bottom:0.5rem;">Contact</div>
     <div style="font-size:0.85rem;color:var(--slate);margin-bottom:0.3rem;"><a href="mailto:contact@assuredlaw.com" style="color:var(--navy);text-transform:none;letter-spacing:0;padding:0;display:inline;">contact@assuredlaw.com</a></div>
@@ -791,14 +768,10 @@
     <div class="container">
       <div class="stats-grid">
         <div>
-          <div class="stat-num">25+</div>
-          <div class="stat-label">Years of Compliance Enforcement</div>
-        </div>
-        <div>
           <div class="stat-num">5</div>
           <div class="stat-label">Practice Areas</div>
         </div>
-        <div class="stat-full">
+        <div>
           <div class="stat-num">100%</div>
           <div class="stat-label">Client-Focused Representation</div>
         </div>
@@ -813,9 +786,9 @@
         <div class="badge badge-navy" style="margin-bottom:1rem;">Why Assured Law</div>
         <h2 style="margin-bottom:1rem;">Deep Industry Roots. Fresh Legal Firepower.</h2>
         <div class="rule-silver"></div>
-        <p>When a neighbor's property, a public hazard, or a dangerous premise causes you injury, financial loss, or disrupts your life, you deserve fierce representation from attorneys who know this terrain.</p>
+        <p>When a neighbor's property, a public hazard, or a dangerous premise causes you injury, financial loss, or disrupts your life, you deserve fierce representation from a team that knows this terrain.</p>
         <p>Assured Law was founded by professionals with 25 years of experience in property management, regulatory compliance, and the construction industry. We spent those years on the other side of these disputes: managing the properties, answering the complaints, and enforcing the codes.</p>
-        <p>As plaintiffs' attorneys, we now bring that knowledge to your side of the case. We know how defendants think, or fail to. We know what their maintenance records look like, how complaints get logged or quietly buried, which inspections were skipped, and where the liability lives. That perspective, combined with rigorous legal training, means we build cases other firms miss.</p>
+        <p>As a plaintiffs' firm, we now bring that knowledge to your side of the case. We know how defendants think, or fail to. We know what their maintenance records look like, how complaints get logged or quietly buried, which inspections were skipped, and where the liability lives. That perspective, combined with rigorous legal training, means we build cases other firms miss.</p>
         <p>We take the cases other firms turn away, and we pursue every one of them with professional discipline.</p>
         <a class="btn btn-primary" style="margin-top:1rem;" onclick="navigate('review')">Start Your Free Review</a>
       </div>
@@ -918,10 +891,6 @@
           <p style="margin:0;font-size:0.88rem;">We evaluate claims against the evidentiary standard from day one; no false hope, only real assessments.</p>
         </div>
         <div class="why-item">
-          <h4>Contingency Fee</h4>
-          <p style="margin:0;font-size:0.88rem;">You pay nothing unless we win. Our incentives are fully aligned with your recovery.</p>
-        </div>
-        <div class="why-item">
           <h4>Industry-Insider Advantage</h4>
           <p style="margin:0;font-size:0.88rem;">Our founding team spent 25 years in property management, compliance enforcement, and construction; we know how owners operate and where they fall short.</p>
         </div>
@@ -948,8 +917,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Practice Areas <span>/ Nuisance Law</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Nuisance Law</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Practice Areas</div>
         <h1>Nuisance Law in Nevada</h1>
         <p>When someone's use of property unreasonably interferes with your rights, you are entitled to relief. Our team brings deep property and compliance experience to every nuisance claim we pursue.</p>
       </div>
@@ -994,7 +962,7 @@
               <li>Blighted structures that attract criminal activity</li>
             </ul>
             <h4 style="font-size:1rem;color:var(--navy);margin:1rem 0 0.5rem;">Standing Requirement</h4>
-            <p style="margin:0;font-size:0.88rem;">To bring a private action for public nuisance, you must demonstrate a <em>special injury</em>, harm of a different kind or degree than that suffered by the public generally. Our attorneys will assess whether your situation meets this threshold.</p>
+            <p style="margin:0;font-size:0.88rem;">To bring a private action for public nuisance, you must demonstrate a <em>special injury</em>, harm of a different kind or degree than that suffered by the public generally. We will assess whether your situation meets this threshold.</p>
           </div>
 
           <!-- Private Nuisance -->
@@ -1099,7 +1067,7 @@
           </table>
         </div>
         <div style="margin-top:2.5rem;text-align:center;">
-          <p style="margin-bottom:1.25rem;font-size:1rem;">Uncertain which type applies to your situation? Our attorneys make that determination as part of the free case review.</p>
+          <p style="margin-bottom:1.25rem;font-size:1rem;">Uncertain which type applies to your situation? We make that determination as part of the free case review.</p>
           <a class="btn btn-primary" onclick="navigate('review')">Get a Free Case Review</a>
         </div>
       </div>
@@ -1143,8 +1111,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Practice Areas <span>/ Premises Liability</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Premises Liability</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Practice Areas</div>
         <h1>Premises Liability Law</h1>
         <p>Property owners owe you a legal duty of care. When they breach that duty and you are injured, the law provides a path to full compensation.</p>
       </div>
@@ -1157,7 +1124,7 @@
           <div class="badge badge-navy" style="margin-bottom:1rem;">The Legal Standard</div>
           <h2 style="margin-bottom:1rem;">What Is Premises Liability?</h2>
           <div class="rule-silver rule-center"></div>
-          <p>Premises liability holds property owners and occupiers legally responsible for injuries that occur on their property when those injuries result from a failure to maintain the property in a reasonably safe condition. Nevada law imposes specific duties that vary based on the visitor's legal status, and our attorneys know exactly how to leverage those duties in your favor.</p>
+          <p>Premises liability holds property owners and occupiers legally responsible for injuries that occur on their property when those injuries result from a failure to maintain the property in a reasonably safe condition. Nevada law imposes specific duties that vary based on the visitor's legal status, and we know exactly how to leverage those duties in your favor.</p>
         </div>
       </div>
     </section>
@@ -1193,7 +1160,7 @@
           <div class="duty-card">
             <div class="duty-label">Note</div>
             <h4>Nevada Trend</h4>
-            <p>Nevada courts have increasingly moved toward a unified reasonable-care standard for all lawful visitors. Our attorneys will apply the most favorable applicable framework to your case.</p>
+            <p>Nevada courts have increasingly moved toward a unified reasonable-care standard for all lawful visitors. We will apply the most favorable applicable framework to your case.</p>
             <div style="margin-top:0.75rem;font-size:0.8rem;font-style:italic;color:var(--text-muted);">We track evolving case law so you benefit from the strongest current standard</div>
           </div>
         </div>
@@ -1380,42 +1347,9 @@
       <div class="container" style="text-align:center;">
         <div class="badge badge-silver" style="margin-bottom:1.25rem;">No Fee. No Obligation.</div>
         <h1 style="color:var(--navy);">Free Case Review</h1>
-        <p style="color:var(--slate);font-size:1.05rem;max-width:580px;margin:1rem auto 0;">Schedule your consultation directly below, or submit the detailed case review form further down this page. Either path connects you with an Assured Law attorney.</p>
+        <p style="color:var(--slate);font-size:1.05rem;max-width:580px;margin:1rem auto 0;">Submit the case review form below. Our team reviews every submission, checks for conflicts of interest, and contacts you to schedule your free consultation.</p>
       </div>
     </div>
-
-    <!-- Booking Scheduler -->
-    <section style="padding:3.5rem 0 2rem;background:var(--white);">
-      <div class="form-container">
-        <div class="form-card" style="padding:0;overflow:hidden;">
-          <div style="padding:2rem 2.5rem 1.25rem;border-bottom:1px solid var(--border);background:var(--light-bg);">
-            <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
-              <div class="step-num" style="width:26px;height:26px;background:var(--navy);color:white;border-radius:50%;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">✓</div>
-              <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);">Schedule Your Consultation</span>
-            </div>
-            <p style="margin:0;font-size:0.9rem;color:var(--slate);">Select an available time that works for you. Your appointment is confirmed instantly and an Assured Law attorney will be prepared for your call.</p>
-          </div>
-          <iframe
-            src="https://mygoodlawyers.cliogrow.com/book"
-            title="Schedule a consultation with Assured Law"
-            style="display:block;width:100%;height:760px;border:none;background:white;"
-            loading="lazy">
-          </iframe>
-          <div style="padding:1rem 2.5rem;border-top:1px solid var(--border);background:var(--light-bg);text-align:center;">
-            <p style="margin:0;font-size:0.82rem;color:var(--text-muted);">If the scheduler does not load above, <a href="https://mygoodlawyers.cliogrow.com/book" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:underline;">open the booking page directly</a>.</p>
-          </div>
-        </div>
-
-        <div style="text-align:center;padding:1.5rem 0 0.5rem;">
-          <div style="display:flex;align-items:center;gap:1rem;max-width:400px;margin:0 auto;">
-            <div style="flex:1;height:1px;background:var(--border);"></div>
-            <span style="font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-muted);">Or Submit Details First</span>
-            <div style="flex:1;height:1px;background:var(--border);"></div>
-          </div>
-          <p style="font-size:0.9rem;color:var(--slate);margin-top:1rem;max-width:560px;margin-left:auto;margin-right:auto;">Prefer to share your case details and evidence before speaking with us? Complete the case review form below and our team will contact you.</p>
-        </div>
-      </div>
-    </section>
 
     <section class="form-section">
       <div class="form-container">
@@ -1480,26 +1414,6 @@
                   <span>Defective work on your property</span>
                 </div>
               </label>
-            </div>
-          </div>
-
-          <!-- Clio Grow Nuisance Intake Embed (shown when Nuisance selected) -->
-          <div class="form-card dynamic-fields" id="clioNuisanceEmbed" style="padding:0;overflow:hidden;">
-            <div style="padding:2rem 2.5rem 1.25rem;border-bottom:1px solid var(--border);background:var(--light-bg);">
-              <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:0.5rem;">
-                <div class="step-num" style="width:26px;height:26px;background:var(--navy);color:white;border-radius:50%;font-family:'Inter',sans-serif;font-size:0.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
-                <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--navy);">Nuisance Claim Intake</span>
-              </div>
-              <p style="margin:0;font-size:0.9rem;color:var(--slate);">Complete the secure intake form below. Before you begin, gather any photos, written communications with the responsible party, repair invoices or estimates, and complaint reference numbers. Your submission goes directly to our case management system for conflict check and attorney review.</p>
-            </div>
-            <iframe
-              src="https://mygoodlawyers.cliogrow.com/intake/551caf0df0fccdca5be4e8de62d7ac0d"
-              title="Assured Law nuisance claim intake form"
-              style="display:block;width:100%;height:1100px;border:none;background:white;"
-              loading="lazy">
-            </iframe>
-            <div style="padding:1rem 2.5rem;border-top:1px solid var(--border);background:var(--light-bg);text-align:center;">
-              <p style="margin:0;font-size:0.82rem;color:var(--text-muted);">If the form does not load above, <a href="https://mygoodlawyers.cliogrow.com/intake/551caf0df0fccdca5be4e8de62d7ac0d" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:underline;">open the nuisance intake form directly</a>.</p>
             </div>
           </div>
 
@@ -2355,7 +2269,7 @@
             <div class="form-row full">
               <div class="form-group">
                 <label>Anything Else Our Team Should Know?</label>
-                <textarea name="additionalInfo" rows="4" placeholder="Include any additional context, concerns, or questions you have for our attorneys. Nothing is too small; our team reads every word."></textarea>
+                <textarea name="additionalInfo" rows="4" placeholder="Include any additional context, concerns, or questions you have for our team. Nothing is too small; we read every word."></textarea>
               </div>
             </div>
           </div>
@@ -2405,8 +2319,7 @@
     <!-- Page Hero -->
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Practice Areas <span>/ Justice Court Claims</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Justice Court Claims</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Practice Areas</div>
         <h1>Justice Court Claims in Nevada</h1>
         <p>The size of a claim does not determine its importance to the person harmed. Assured Law provides efficient, focused legal representation for nuisance and premises liability claims within Nevada Justice Court jurisdiction, giving every client access to a neutral judicial forum and full advocacy at a cost structure proportionate to the matter.</p>
       </div>
@@ -2600,8 +2513,8 @@
         <div class="badge badge-silver" style="margin-bottom:1.25rem;">No Claim Too Small</div>
         <h2 style="color:var(--navy);margin-bottom:1rem;">Full Representation. Cost-Proportionate Fees.</h2>
         <div class="rule-silver rule-center"></div>
-        <p style="max-width:620px;margin:1rem auto 2rem;">Assured Law handles qualifying Justice Court claims on a contingency basis, meaning our fee is a percentage of what we recover. If we do not recover, you owe no attorney fees. Our free consultation will assess whether your claim is viable and explain the fee arrangement applicable to your matter.</p>
-        <a class="btn btn-primary" onclick="navigate('review')">Schedule Your Free Consultation</a>
+        <p style="max-width:620px;margin:1rem auto 2rem;">Assured Law structures its fees for Justice Court matters so the cost of representation stays proportionate to the size of the claim. Your free consultation will assess whether your claim is viable and explain the fee arrangement applicable to your matter, all before you commit to anything.</p>
+        <a class="btn btn-primary" onclick="navigate('review')">Start Your Free Case Review</a>
       </div>
     </section>
 
@@ -2616,8 +2529,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Practice Areas <span>/ Personal Injury</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Personal Injury</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Practice Areas</div>
         <h1>Personal Injury Representation in Nevada</h1>
         <p>When another party's negligence causes you physical harm, Nevada law entitles you to compensation for the full measure of your losses. Assured Law pursues personal injury claims with the same disciplined, evidence-first approach we apply across our practice.</p>
       </div>
@@ -2728,8 +2640,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Practice Areas <span>/ Construction Defect</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Construction Defect</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Practice Areas</div>
         <h1>Construction Defect Claims in Nevada</h1>
         <p>Defective construction damages the largest investment most people ever make. Nevada law provides a specific statutory path for holding builders, contractors, and developers accountable, and following that path correctly is essential to preserving your claim.</p>
       </div>
@@ -2832,8 +2743,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ Privacy Policy</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Privacy Policy</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Legal</div>
         <h1>Privacy Policy</h1>
         <p>This policy explains how Assured Law collects, uses, shares, and protects information when you visit www.assuredlaw.com or submit information through this website.</p>
       </div>
@@ -2847,12 +2757,12 @@
 
           <h2>1. Introduction and Scope</h2>
           <p>Assured Law ("Assured Law," "we," "us," or "our") is a Nevada law firm. This Privacy Policy describes our practices regarding information collected through this website, www.assuredlaw.com (the "Site"). By using the Site or submitting information through it, you acknowledge the practices described here.</p>
-          <p>This Site constitutes attorney advertising. The information on the Site is provided for general informational purposes only and does not constitute legal advice. Submitting a case review form, using a scheduling tool, or otherwise contacting us through the Site does not create an attorney–client relationship, and information you submit is not protected by the attorney–client privilege until a formal engagement is established.</p>
+          <p>This Site constitutes attorney advertising. The information on the Site is provided for general informational purposes only and does not constitute legal advice. Submitting a case review form or otherwise contacting us through the Site does not create an attorney–client relationship, and information you submit is not protected by the attorney–client privilege until a formal engagement is established.</p>
 
           <h2>2. Information We Collect</h2>
 
           <h3>Information you provide to us</h3>
-          <p>When you complete the case review form or an intake or scheduling tool on the Site, we collect the information you choose to provide, which may include:</p>
+          <p>When you complete the case review form on the Site, we collect the information you choose to provide, which may include:</p>
           <ul>
             <li>Your name, email address, telephone number, and city or location;</li>
             <li>Details about your legal matter, including the type of claim, dates, locations, parties involved, and your description of events;</li>
@@ -2887,7 +2797,6 @@
             <li><strong>Service providers.</strong> We use trusted third-party services to operate the Site and process submissions, and information you submit passes through them:
               <ul>
                 <li><strong>Web3Forms</strong> processes case review form submissions and delivers them to us by email, including any files you attach.</li>
-                <li><strong>Clio Grow</strong> powers the consultation scheduler and certain intake forms embedded on the Site.</li>
                 <li><strong>Google Fonts</strong> serves the fonts used on the Site, which involves your browser contacting Google's servers and disclosing your IP address.</li>
                 <!-- OPTIONAL: remove if the firm does not use analytics. -->
                 <li><strong>Google Analytics</strong> (if enabled) helps us measure and understand Site usage.</li>
@@ -2897,7 +2806,7 @@
             <li><strong>Legal and safety disclosures.</strong> We may disclose information where required by law, subpoena, or court order, or where necessary to protect our rights, comply with our professional obligations, or prevent harm.</li>
             <li><strong>Business context.</strong> Information may be shared in connection with a merger, reorganization, or similar event affecting the firm, subject to appropriate confidentiality protections.</li>
           </ul>
-          <p>These third-party services process information under their own privacy policies. We encourage you to review the privacy policies of Web3Forms, Clio, and Google.</p>
+          <p>These third-party services process information under their own privacy policies. We encourage you to review the privacy policies of Web3Forms and Google.</p>
 
           <h2>5. Cookies and Tracking Technologies</h2>
           <!-- OPTIONAL: if the firm uses no cookies/analytics at all, this section can be simplified to state that the Site does not use cookies or tracking technologies. -->
@@ -2935,7 +2844,7 @@
           <p>To exercise any of these rights, contact us using the details below. We will verify your request before responding and will respond within the timeframes required by applicable law. You may use an authorized agent to submit a request on your behalf.</p>
 
           <h2>11. Third-Party Links and Embedded Content</h2>
-          <p>The Site includes embedded tools and may link to third-party websites, including services provided by Clio and Google. We do not control those services and are not responsible for their content or privacy practices. Your use of them is governed by their own terms and privacy policies.</p>
+          <p>The Site includes embedded tools and may link to third-party websites, including services provided by Web3Forms and Google. We do not control those services and are not responsible for their content or privacy practices. Your use of them is governed by their own terms and privacy policies.</p>
 
           <h2>12. Changes to This Policy</h2>
           <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Effective date" above. Your continued use of the Site after any update indicates your acknowledgment of the revised policy.</p>
@@ -2967,8 +2876,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ Terms of Use</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Terms of Use</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Legal</div>
         <h1>Terms of Use</h1>
         <p>These terms govern your use of www.assuredlaw.com. Please read them carefully. By using the Site, you agree to them.</p>
       </div>
@@ -3004,7 +2912,7 @@
           <p>You are responsible for the accuracy of the information you submit through the Site, and you represent that you have the right to submit it. Please provide only the information reasonably necessary for us to evaluate your inquiry, and do not send highly sensitive or time-sensitive information through the Site. Our handling of information you submit is described in our <a onclick="navigate('privacy')" style="cursor:pointer;">Privacy Policy</a>.</p>
 
           <h2>6. Third-Party Links and Services</h2>
-          <p>The Site contains embedded tools and links to services operated by third parties, including scheduling and intake tools provided by Clio and fonts served by Google. We do not control these third parties and are not responsible for their content, availability, or practices. Your use of third-party services is governed by their own terms and policies.</p>
+          <p>The Site contains embedded tools and links to services operated by third parties, including form processing provided by Web3Forms and fonts served by Google. We do not control these third parties and are not responsible for their content, availability, or practices. Your use of third-party services is governed by their own terms and policies.</p>
 
           <h2>7. Disclaimer of Warranties</h2>
           <p>The Site is provided "as is" and "as available," without warranties of any kind, whether express or implied, including any implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant that the Site will be uninterrupted, error-free, secure, or free of harmful components, or that the information on the Site is complete, accurate, or current. See also our <a onclick="navigate('disclaimer')" style="cursor:pointer;">Disclaimer</a>.</p>
@@ -3048,8 +2956,7 @@
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ Disclaimer</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Disclaimer</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Legal</div>
         <h1>Disclaimer</h1>
         <p>Important information about the content of this website and its limits.</p>
       </div>
@@ -3062,7 +2969,7 @@
           <p class="updated">Effective date: July 17, 2026</p>
 
           <h2>1. Attorney Advertising</h2>
-          <p>This website is attorney advertising. It is published by Assured Law, a Nevada law firm, for general informational purposes. It is not a solicitation for professional employment in any jurisdiction where Assured Law's attorneys are not licensed to practice.</p>
+          <p>This website is attorney advertising. It is published by Assured Law, a Nevada law firm, for general informational purposes. It is not a solicitation for professional employment in any jurisdiction where Assured Law is not licensed to practice.</p>
 
           <h2>2. Not Legal Advice</h2>
           <p>The information on this website is general in nature and is not legal advice. Every legal matter is different, and the application of law to any particular set of facts requires the advice of a licensed attorney. You should not act, or refrain from acting, based on anything you read on this website. For advice about your specific situation, consult a licensed attorney.</p>
@@ -3074,7 +2981,7 @@
           <p>Any references to past matters, experience, or outcomes are provided for informational purposes only. Prior results do not guarantee or predict a similar outcome in any future matter. The outcome of any legal matter depends on its specific facts and circumstances.</p>
 
           <h2>5. Jurisdiction and Licensing</h2>
-          <p>Assured Law's attorneys are licensed to practice law in the State of Nevada. The firm does not seek to represent anyone based solely on a visit to this website in a jurisdiction where this website does not comply with that jurisdiction's laws and ethical rules.</p>
+          <p>Assured Law is licensed to practice law in the State of Nevada. The firm does not seek to represent anyone based solely on a visit to this website in a jurisdiction where this website does not comply with that jurisdiction's laws and ethical rules.</p>
 
           <h2>6. Firm Background</h2>
           <p>References on this website to many years of professional experience describe the founders' backgrounds in property management, regulatory compliance, and the construction industry. Those references describe that non-legal experience and are not representations about the length of time any attorney has practiced law.</p>
@@ -3083,7 +2990,7 @@
           <p>We make reasonable efforts to keep the information on this website accurate and current, but laws change and the information may become outdated. Statutory references, jurisdictional limits, and deadlines mentioned on this website are subject to legislative amendment and should be independently verified. We make no warranty that the content is complete, accurate, or up to date.</p>
 
           <h2>8. Third-Party Content and Links</h2>
-          <p>This website includes embedded tools and links to third-party services, including those provided by Clio and Google. Assured Law is not responsible for the content or practices of any third-party service, and the inclusion of any link or embedded tool does not imply endorsement.</p>
+          <p>This website includes embedded tools and links to third-party services, including those provided by Web3Forms and Google. Assured Law is not responsible for the content or practices of any third-party service, and the inclusion of any link or embedded tool does not imply endorsement.</p>
 
           <h2>9. Contact Us</h2>
           <p>
@@ -3103,17 +3010,15 @@
 
 <!--
   ═══ ABOUT ═══
-  PLACEHOLDER content. Replace the lorem-style copy with the firm's real story,
-  mission, and values before launch. Keep "25 years" attributed to property
-  management / compliance / construction, never the practice of law.
+  Keep "25 years" attributed to property management / compliance /
+  construction, never the practice of law.
 -->
 <div id="page-about" class="page">
   <div class="pt-nav">
 
     <div class="page-hero">
       <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ About</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">About the Firm</div>
+        <div class="badge badge-silver" style="margin-bottom:1.25rem;">The Firm</div>
         <h1>About Assured Law</h1>
         <p>For more than 45 years, the people behind Assured Law have called Henderson home. Our founders built decades of experience in property management and regulatory compliance across Nevada, developing a practical understanding of the issues that affect local property owners and residents. That background now guides how we serve our clients, with clear, dedicated representation on nuisance, premises liability, and Justice Court claims.</p>
       </div>
@@ -3125,8 +3030,9 @@
           <div class="badge badge-navy" style="margin-bottom:1rem;">Our Story</div>
           <h2 style="margin-bottom:1rem;">A Different Vantage Point</h2>
           <div class="rule-silver rule-center"></div>
-          <p>Placeholder copy. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Assured Law was founded by professionals with 25 years of experience in property management, regulatory compliance, and the construction industry, experience that informs how the firm approaches its clients' matters today.</p>
-          <p>Placeholder copy. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          <p>Assured Law did not begin with lawyers looking for business. It began in private industry. Our founders spent 25 years in construction, property management, and regulatory compliance. We built, we managed, and we held the privileged licenses those industries demand. We worked inside the industries most firms only see from across a courtroom.</p>
+          <p>From that vantage point, we watched industries and agencies take advantage of the very consumers they were supposed to serve. Complaints buried. Hazards left unrepaired. Responsibility passed from one party to the next until the person harmed simply gave up. We reached a simple conclusion: the consumer is underserved.</p>
+          <p>So we built a firm for the consumer. We know these industries inside and out: how they operate, how they keep records, and where accountability lives. Now that knowledge works for you.</p>
         </div>
       </div>
     </section>
@@ -3144,8 +3050,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
             <div>
-              <h4>Placeholder Value One</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+              <h4>Straight Answers</h4>
+              <p>We evaluate every case against the evidence and tell you where you actually stand. No false hope, no runaround, no pressure.</p>
             </div>
           </div>
           <div class="incident-item">
@@ -3153,8 +3059,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <h4>Placeholder Value Two</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+              <h4>The Consumer Comes First</h4>
+              <p>We built this firm to represent people, not the industries we came from. When a property owner, builder, or agency causes you harm, we work for you.</p>
             </div>
           </div>
           <div class="incident-item">
@@ -3162,8 +3068,8 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
             <div>
-              <h4>Placeholder Value Three</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short description of a firm value goes here.</p>
+              <h4>No Claim Too Small</h4>
+              <p>The size of a claim does not measure its importance to the person harmed. From Justice Court matters to complex litigation, every client receives full representation.</p>
             </div>
           </div>
         </div>
@@ -3175,108 +3081,6 @@
 
   </div>
 </div><!-- /page-about -->
-
-<!--
-  ═══ OUR ATTORNEYS ═══
-  PLACEHOLDER content. Replace names, titles, photos, and bios with the firm's
-  real attorney information. Bios must not attribute the 25 years of experience
-  to the practice of law.
--->
-<div id="page-attorneys" class="page">
-  <div class="pt-nav">
-
-    <div class="page-hero">
-      <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ Our Attorneys</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Our Attorneys</div>
-        <h1>Our Attorneys</h1>
-        <p>Placeholder introduction to the firm's attorneys. Replace with a short statement about the team.</p>
-      </div>
-    </div>
-
-    <section style="padding:4rem 0;">
-      <div class="container">
-        <div class="bio-grid">
-
-          <div class="bio-card">
-            <div class="bio-photo">
-              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0114 0v1"/></svg>
-            </div>
-            <h3>Attorney Name</h3>
-            <div class="bio-role">Founding Attorney</div>
-            <p>Placeholder bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-          </div>
-
-          <div class="bio-card">
-            <div class="bio-photo">
-              <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#9AA7BD" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a7 7 0 0114 0v1"/></svg>
-            </div>
-            <h3>Attorney Name</h3>
-            <div class="bio-role">Founding Attorney</div>
-            <p>Placeholder bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-  </div>
-</div><!-- /page-attorneys -->
-
-<!--
-  ═══ RESULTS ═══
-  PLACEHOLDER content. Replace with real, substantiated representative matters.
-  Do not publish fabricated outcomes or figures. Per firm compliance rules,
-  avoid unsubstantiated results claims and superlatives. Keep the disclaimer.
--->
-<div id="page-results" class="page">
-  <div class="pt-nav">
-
-    <div class="page-hero">
-      <div class="container">
-        <p class="breadcrumb">Assured Law <span>/ Results</span></p>
-        <div class="badge badge-silver" style="margin-bottom:1.25rem;">Results</div>
-        <h1>Representative Matters</h1>
-        <p>Placeholder introduction. A brief, compliant statement about the firm's representative matters goes here.</p>
-      </div>
-    </div>
-
-    <section style="padding:4rem 0 2rem;">
-      <div class="container">
-        <div class="result-list">
-
-          <div class="result-card">
-            <span class="result-tag">Nuisance</span>
-            <h3>Representative Matter (Placeholder)</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative nuisance matter goes here. Replace with real, substantiated details.</p>
-          </div>
-
-          <div class="result-card">
-            <span class="result-tag">Premises Liability</span>
-            <h3>Representative Matter (Placeholder)</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative premises liability matter goes here. Replace with real, substantiated details.</p>
-          </div>
-
-          <div class="result-card">
-            <span class="result-tag">Personal Injury</span>
-            <h3>Representative Matter (Placeholder)</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Short, anonymized summary of a representative personal injury matter goes here. Replace with real, substantiated details.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <section style="padding:1rem 0 4rem;">
-      <div class="container">
-        <div class="legal-doc" style="max-width:820px;">
-          <div class="legal-note">Prior results do not guarantee or predict a similar outcome in any future matter. The results described here are illustrative placeholders and are not representations of actual outcomes. Every case is different and depends on its own facts. See our <a onclick="navigate('disclaimer')" style="cursor:pointer;">Disclaimer</a>.</div>
-        </div>
-      </div>
-    </section>
-
-  </div>
-</div><!-- /page-results -->
 
 <!-- ═══ FOOTER ═══ -->
 <footer>
@@ -3325,8 +3129,6 @@
         <ul>
           <li><a onclick="navigate('about')">About Assured Law</a></li>
           <li><a onclick="navigate('review')">Case Consultation</a></li>
-          <li><a onclick="navigate('attorneys')">Our Attorneys</a></li>
-          <li><a onclick="navigate('results')">Results</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -3352,7 +3154,7 @@
 
 <script>
   // ── Navigation ──
-  const pages = ['home','nuisance','premises','review','justice','injury','defect','privacy','terms','disclaimer','about','attorneys','results'];
+  const pages = ['home','nuisance','premises','review','justice','injury','defect','privacy','terms','disclaimer','about'];
 
   function navigate(page) {
     pages.forEach(p => {
@@ -3375,26 +3177,11 @@
     if (!selected) return;
     const type = selected.value;
 
-    // Nuisance claims route to the Clio Grow intake form, embedded on page.
-    // Premises and Justice Court claims use the on-page form until their
-    // Clio intake links are available.
-    const clioEmbed = document.getElementById('clioNuisanceEmbed');
-    const restOfForm = document.getElementById('restOfForm');
-
-    if (type === 'nuisance') {
-      clioEmbed.classList.add('visible');
-      restOfForm.style.display = 'none';
-    } else {
-      clioEmbed.classList.remove('visible');
-      restOfForm.style.display = '';
-      document.getElementById('nuisanceFields').classList.remove('visible');
-      document.getElementById('premisesFields').classList.toggle('visible', type === 'premises');
-      document.getElementById('justiceFields').classList.toggle('visible', type === 'justice');
-      document.getElementById('injuryFields').classList.toggle('visible', type === 'injury');
-      document.getElementById('defectFields').classList.toggle('visible', type === 'defect');
-      document.getElementById('evidenceStep').textContent = '5';
-      document.getElementById('legalStep').textContent = '6';
-    }
+    document.getElementById('nuisanceFields').classList.toggle('visible', type === 'nuisance');
+    document.getElementById('premisesFields').classList.toggle('visible', type === 'premises');
+    document.getElementById('justiceFields').classList.toggle('visible', type === 'justice');
+    document.getElementById('injuryFields').classList.toggle('visible', type === 'injury');
+    document.getElementById('defectFields').classList.toggle('visible', type === 'defect');
   }
 
   // ── File Upload Handling ──
@@ -3455,6 +3242,7 @@
   const WEB3FORMS_ACCESS_KEY = 'f9d39be0-ef4e-4cd5-8773-4672994b7074';
 
   const CASE_TYPE_LABELS = {
+    nuisance: 'Nuisance Claim',
     premises: 'Premises Liability',
     justice: 'Justice Court Claim',
     injury: 'Personal Injury',
@@ -3467,19 +3255,28 @@
     const consent = form.querySelector('[name="consent"]');
     const accurate = form.querySelector('[name="accurate"]');
     const caseTypeInput = form.querySelector('input[name="caseType"]:checked');
-    const firstName = form.querySelector('[name="firstName"]');
     const errorEl = document.getElementById('formError');
 
     if (!caseTypeInput) { alert('Please select a case type to continue.'); return; }
     if (!consent.checked || !accurate.checked) { alert('Please confirm the consent statements before submitting.'); return; }
-    if (!firstName.value.trim()) { alert('Please provide your name.'); return; }
+
+    // Check every visible required field (hidden case-type sections are
+    // display:none, so offsetParent is null and they are skipped).
+    const missing = Array.from(form.querySelectorAll('[required]'))
+      .find(el => el.offsetParent !== null && !el.value.trim());
+    if (missing) {
+      const label = missing.closest('.form-group')?.querySelector('label')?.textContent.replace('*', '').trim() || 'a required field';
+      alert('Please fill in ' + label + ' before submitting.');
+      missing.focus();
+      return;
+    }
 
     const caseType = caseTypeInput.value;
 
     // Exclude the hidden case-type sections so a submission carries only the
     // fields relevant to the selected case type, not empty fields from the others.
     const disabledFields = [];
-    ['premisesFields', 'justiceFields', 'injuryFields', 'defectFields']
+    ['nuisanceFields', 'premisesFields', 'justiceFields', 'injuryFields', 'defectFields']
       .filter(id => id !== caseType + 'Fields')
       .map(id => document.getElementById(id))
       .filter(Boolean)

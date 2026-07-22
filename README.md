@@ -32,25 +32,30 @@ Routing is handled in JavaScript by the `navigate()` function. Page IDs:
 | `justice`    | Small claims vs. Justice Court, advantages, four elements  |
 | `injury`     | Negligence framework, claim types, damages                 |
 | `defect`     | NRS Chapter 40 process, defect categories, HOA claims      |
-| `review`     | Clio Grow scheduler, nuisance intake embed, on-page form   |
+| `review`     | On-page case review form (per-case-type dynamic fields)    |
 | `privacy`    | Privacy Policy                                             |
 | `terms`      | Terms of Use                                               |
 | `disclaimer` | Disclaimer                                                 |
+| `about`      | Firm story, values                                         |
+
+Our Attorneys and Results pages existed briefly but were removed in July 2026:
+Results pending real, substantiated representative matters, and Our Attorneys
+because the firm currently has a single attorney. Recover either from git
+history if needed.
 
 ## Third-Party Integrations
 
 1. **Google Fonts.** Cormorant Garamond and Inter, loaded from fonts.googleapis.com.
-2. **Clio Grow scheduler.** Iframe on the Case Consultation page, pointing to `https://mygoodlawyers.cliogrow.com/book`.
-3. **Clio Grow nuisance intake form.** Iframe shown when "Nuisance Claim" is selected, pointing to `https://mygoodlawyers.cliogrow.com/intake/551caf0df0fccdca5be4e8de62d7ac0d`.
-4. **Web3Forms.** The on-page case review form POSTs to `https://api.web3forms.com/submit`. On failure it surfaces an error and directs the visitor to call the firm instead.
+2. **Web3Forms.** The on-page case review form POSTs to `https://api.web3forms.com/submit`. On failure it surfaces an error and directs the visitor to call the firm instead.
 
-Both Clio iframes have a fallback direct link beneath them in case embedding is blocked by response headers.
+The Clio Grow scheduler and intake embeds were removed in July 2026: the firm
+schedules consultations only after reviewing a submitted intake, so the on-page
+form is the single intake path. Recover the embeds from git history if needed.
 
 ## Open Items
 
-1. **Two placeholder links** (`href="#"`) remain in the footer: Our Attorneys and Results.
-2. **Single-URL architecture.** All pages share one URL, so search engines index one page. Acceptable at launch; revisit before investing in search traffic.
-3. **Web3Forms access key is public.** This is inherent to a client-side form — the key is visible to any browser, so it is not a leak. It does mean anyone can POST to the endpoint. Enable domain restriction and spam filtering in the Web3Forms dashboard to limit abuse.
+1. **Single-URL architecture.** All pages share one URL, so search engines index one page. Acceptable at launch; revisit before investing in search traffic.
+2. **Web3Forms access key is public.** This is inherent to a client-side form — the key is visible to any browser, so it is not a leak. It does mean anyone can POST to the endpoint. Enable domain restriction and spam filtering in the Web3Forms dashboard to limit abuse.
 
 ## Deployment (Render)
 
